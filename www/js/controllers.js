@@ -56,6 +56,84 @@ angular.module('starter.controllers', [])
 
   })
   .controller('RecipeCtrl', function($scope, $stateParams, $http, $q) {
+    $scope.CurrentRecipe = $stateParams.link;
+
+    $("#ingredient_tab").click(function(e) {
+      $("#ingredient_tab").addClass('button-clicked');
+      $("#prep_tab").removeClass('button-clicked');
+      //e.preventDefault();
+      var content = $('#ingredient').html();
+      $('#pane').empty().append(content);
+    });
+    $("#prep_tab").click(function(e) {
+      $("#prep_tab").addClass('button-clicked');
+      $("#ingredient_tab").removeClass('button-clicked');
+      //e.preventDefault();
+      var content = $('#prep').html();
+      $('#pane').empty().append(content);
+    });
+    console.log("entered recipe...");
+    var fullLink = "http://forkthecookbook.com/recipes/"+$stateParams.link;
+
+
+    console.log($scope.CurrentRecipe);
+    var arr = [];
+    var headers = {
+      'Access-Control-Allow-Origin' : '*',
+      'Access-Control-Allow-Origin' : 'http://localhost:8101',
+      'Access-Control-Allow-Methods' : 'POST, GET, OPTIONS, PUT',
+      'Content-Type': 'application/json',
+      'Accept': 'text/html'
+    };
+    arr.push(
+      $http({
+        method: "GET",
+        params: {},
+        headers: headers,
+        url: fullLink
+      })
+    );
+    $q.all(arr).then(function (result) {
+
+      console.log("Auth.signin.success!");
+
+      //var html = $($.parseHTML( result[0].data )).find( "#recipeContainer" )[0];
+
+      var jqueryHTML = $($.parseHTML(result[0].data));
+      var instructionsChunks = jqueryHTML.find('.recipe-instructions');
+      var preparationsDiv = $($('#prep').find('.cont_text_det_preparation')[0]);
+      var instructions = [];
+      for(var i = 0;i < instructionsChunks.length; i++)
+      {
+        var lines = $(instructionsChunks[i]).find('li');
+        for(var line = 0; line < lines.length; line++)
+        {
+          var step = $($(lines[line])[0]).text();
+
+
+
+          var newStep = '<div class="cont_title_preparation">' +
+            ' <p>STEP '+(i+1)+'</p>' +
+            '</div>' +
+            '<div class="cont_info_preparation">' +
+            '<p>'+step+'</p>' +
+            '</div>';
+          preparationsDiv.append(newStep);
+          instructions.push(step);
+        }
+        console.log();
+      }
+
+      console.log(instructions);
+        $("#prep_tab").addClass('button-clicked');
+        $("#ingredient_tab").removeClass('button-clicked');
+        //e.preventDefault();
+        var content = $('#prep').html();
+        $('#pane').empty().append(content);
+      var text = "";
+    }
+        // recipe-instructions
+      );
 
   })
   .controller('SearchCtrl', function($scope, $stateParams, $http, $q) {
@@ -171,12 +249,12 @@ angular.module('starter.controllers', [])
           }
           var linkX = recipeCardInfo.link[i];
 
-          results += "<div class='w3-card-4' style='display: inline-block;margin-top: 20px;margin-bottom: 20px;margin-right: 30px; margin-left: 16px;width:20%'>"+
+          results += "<a href='#/app/recipe/"+linkX.substring(linkX.lastIndexOf("/")+1)+"'><div class='w3-card-4' style='display: inline-block;margin-top: 20px;margin-bottom: 20px;margin-right: 30px; margin-left: 16px;width:20%'>"+
            " <img src='"+imgX+"' alt='Norway' style='width:100%'>"+
          "<div class='w3-container w3-center'>"+
           "<p>"+titleX+"</p>"+
         "</div>"+
-        "</div>";
+        "</div></a>";
         }
 
         //console.log(text);
