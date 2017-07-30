@@ -1,0 +1,748 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+
+
+
+
+
+
+
+
+
+
+  <!--<script type="text/javascript" src="/js/lib/dummy.js"></script>
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">-->
+
+
+
+
+  <style type="text/css">
+    .card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width:100%
+}
+
+.btn-round{
+    margin-left: 20px;
+  background-color: rgba(255,253,112,0.8);
+  border-radius: 999em;
+top: 20%;
+  height: 90px;
+  width: 90px;
+
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+
+  line-height: 90px;
+ text-align: center;
+
+  font-size: 36px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+.number
+{
+  line-height: 90px;
+}
+.ignore_nl
+{
+  line-height: 1px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.image{
+  background-size: 20%;
+  height:200px;
+background-image: url("https://s-media-cache-ak0.pinimg.com/736x/57/98/9f/57989f2a2e186e38bf93429aa395120c.jpg");
+    background-repeat: repeat-x repeat-y;
+}
+.card img {
+  width:10%;
+ // position: fixed;
+   //bottom: 0px;
+}
+/* Add some padding inside the card container */
+.container {
+    //padding: 2px 16px
+    position: fixed;
+   bottom: 0px;
+}
+/*
+-------------- Basic Reset Css ----------
+ */
+* {
+  margin: 0px auto;
+  padding: 0px;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+/* -------- ----------- */
+.cont_principal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fbfaf6+9,d4cebf+74,d4cebf+74,d4cebf+100 */
+background: rgb(251,250,246); /* Old browsers */
+background: -moz-linear-gradient(-45deg,  rgba(251,250,246,1) 9%, rgba(212,206,191,1) 74%, rgba(212,206,191,1) 74%, rgba(212,206,191,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg,  rgba(251,250,246,1) 9%,rgba(212,206,191,1) 74%,rgba(212,206,191,1) 74%,rgba(212,206,191,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg,  rgba(251,250,246,1) 9%,rgba(212,206,191,1) 74%,rgba(212,206,191,1) 74%,rgba(212,206,191,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbfaf6', endColorstr='#d4cebf',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+
+
+}
+
+
+.cont_central {
+position: absolute;
+  width: 100%;
+  top: 50%;
+  margin-top: -200px;
+}
+
+.cont_modal {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+transition-delay: 0.7s;
+-webkit-transition-delay: 0.7s;
+-o-transition-delay: 0.7s;
+transition-delay: 0.7s;
+}
+
+.cont_photo {
+  position: relative;
+  width: 300px;
+  height: 440px;
+  overflow: hidden;
+  background-color: #eee;
+  border-radius:5px;
+top: -20px;
+float: left;
+z-index: 2;
+-webkit-transition: all 0.5s;
+-o-transition: all 0.5s;
+transition: all 0.5s;
+transition: all 0.5s;
+box-shadow: 1px 1px 20px -5px rgba(0,0,0,0.5);
+}
+
+.cont_img_back {
+  position: absolute;
+width: 100%;
+height: 100%;
+overflow: hidden;
+border-radius:5px ;
+}
+.cont_img_back > img {
+  width: 100%;
+opacity: 0.7;
+-webkit-transition: all 0.5s;
+-o-transition: all 0.5s;
+transition: all 0.5s;
+transition: all 1s;
+}
+
+.cont_img_back:hover > img {
+  transform: scale(1.5);
+}
+
+.cont_text_ingredients {
+//position: absolute;
+  width: 100%;
+top: 0px;
+//left: 290px;
+  margin-left: 10px;
+  height: 400px;
+  float: left;
+  border-radius:5px ;
+z-index: 3;
+box-shadow: 1px 1px  20px  -5px  rgba(0,0,0,0.2);
+
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fbf9f9+28,e8eaed+100 */
+background: rgb(251,249,249); /* Old browsers */
+background: -moz-linear-gradient(-45deg,  rgba(251,249,249,1) 28%, rgba(232,234,237,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg,  rgba(251,249,249,1) 28%,rgba(232,234,237,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg,  rgba(251,249,249,1) 28%,rgba(232,234,237,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbf9f9', endColorstr='#e8eaed',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+-webkit-transition: all 0.5s;
+-o-transition: all 0.5s;
+transition: all 0.5s;
+transition-delay: 0.7s;
+-webkit-transition-delay: 0.7s;
+-o-transition-delay: 0.7s;
+transition-delay: 0.7s;
+}
+
+.cont_mins{
+position: relative;
+float: left;
+  width: 100%;
+}
+
+.sub_mins {
+  position: relative;
+  float: left;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255,253,112,0.8);
+border-radius:50% ;
+margin: 16px;
+margin-bottom: 0px;
+opacity: 0;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  transition: all 0.5s;
+transition-delay: 1s;
+-webkit-transition-delay: 1s;
+-o-transition-delay: 1s;
+transition-delay: 1s;
+
+}
+
+.sub_mins > h3 {
+  font-size: 24px;
+margin-top: 7px;
+  margin-bottom: -15px;
+}
+
+.sub_mins > span {
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.cont_servings {
+  position: relative;
+  float: left;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255,253,112,0.8);
+border-radius:50% ;
+margin: 16px;
+opacity: 0;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+transition-delay: 0.7s;
+-webkit-transition-delay: 0.7s;
+-o-transition-delay: 0.7s;
+transition-delay: 0.7s;
+}
+
+.cont_servings > h3 {
+  font-size: 24px;
+margin-top: 5px;
+  margin-bottom: -15px;
+}
+
+.cont_servings > span {
+  font-size: 9px;
+  font-weight: 700;
+}
+.cont_icon_right {
+  position: relative;
+float: right;
+  margin-top: 16px;
+}
+.cont_icon_right  > a  {
+margin: 16px;
+margin-top: 16px;
+  color: #fff;
+}
+
+.cont_detalles {
+  position: absolute;
+bottom:-185px;
+  height: 200px;
+  border-radius:5px ;
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+100,000000+101&0+0,0.65+68 */
+background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 68%, rgba(0,0,0,0.65) 100%, rgba(0,0,0,0.65) 101%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 68%,rgba(0,0,0,0.65) 100%,rgba(0,0,0,0.65) 101%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 68%,rgba(0,0,0,0.65) 100%,rgba(0,0,0,0.65) 101%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+
+width: 100%;
+-webkit-transition: all 0.5s;
+-o-transition: all 0.5s;
+transition: all 0.5s;
+  transition-delay: 1.2s;
+-webkit-transition-delay: 0.7s;
+-o-transition-delay: 0.7s;
+transition-delay: 0.7s;}
+
+
+.cont_detalles > h3 {
+  margin-top: 50px;
+ color: #fff;
+  font-size: 24px;
+}
+
+.cont_detalles > p {
+  color: #fff;
+width: 80%;
+  text-align:left;
+  font-size: 14px;
+}
+
+/* ---------------- Css Tabs -------- */
+
+.cont_tabs {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 60px;
+border-bottom: 3px solid #EDEDEC;
+}
+
+.cont_tabs > ul {
+  width: 300px;
+  background-color: #eee;
+}
+
+.cont_tabs > ul > li {
+  position: relative;
+  float: left;
+  width: 50%;
+list-style: none;
+}
+.cont_tabs > ul > li > a:not(.button-clicked) {
+border-top: 7px solid #9A96A4;
+}
+.cont_tabs > ul > li > a{
+  position: relative;
+  display: block;
+  float: left;
+padding-top: 15px;
+  color: #241C3E;
+  text-decoration: none;
+  margin-left: 15px;
+font-size: 14px;
+}
+.button-clicked {
+  border-top: 7px solid #ED346C;
+  //border-top: 7px solid rgba(237, 52, 108, 0);
+  margin-top: 0px;
+  color: #9A96A4;
+-webkit-transition: all 0.5s;
+-o-transition: all 0.5s;
+transition: all 0.5s;
+transition: all 0.2s;
+}
+.cont_btn_open_dets {
+  position: absolute;
+  right: -15px;
+  top:50%;
+}
+.cont_btn_open_dets  > a {
+display: block;
+  padding-top: -5px;
+width: 30px;
+  height: 30px;
+  background-color: #ED2460;
+border-radius:50% ;
+color: #fff;
+box-shadow: 0px 0px 20px -2px rgba(237, 36, 96, 1);
+-webkit-transition: all 0.5s;
+-o-transition: all 0.5s;
+transition: all 0.5s;
+transition: all 0.5s;
+transform: rotate(180deg);
+
+}
+
+
+.cont_btn_open_dets  > a > i {
+  margin-top: 4px;
+}
+
+.cont_title_preparation {
+   position: relative;
+  float: left;
+margin:10px 0px ;
+width: 410px;
+}
+.cont_title_preparation > p {
+  font-weight: 700;
+font-size: 14px;
+  margin-left: 40px;
+text-align: left;
+color: #36354E;
+}
+
+.cont_info_preparation {
+  position: relative;
+  float: left;
+}
+.cont_info_preparation > p {
+  margin: 5px 0px;
+  margin-left: 50px;
+border-left: 2px solid #E3E3E3;
+font-size: 12px;
+  padding: 20px 0px;
+padding-left: 20px;
+text-align: left;
+padding-right: 15px;
+color: #565656;
+}
+
+.cont_btn_mas_dets {
+  position: absolute;
+  bottom:0px;
+  left: 50%;
+}
+.cont_btn_mas_dets > a {
+  color: #36354E;
+}
+
+.cont_over_hidden {
+  position: relative;
+  float: left;
+  width: 100%;
+height: 400px;
+  /*overflow: hidden;*/
+}
+
+.cont_text_det_preparation {
+  position: relative;
+  width: 410px;
+}
+
+.cont_modal_active > .cont_text_ingredients  > .cont_btn_open_dets > a {
+  transform: rotate(0deg);
+}
+.cont_modal_active > .cont_text_ingredients{
+  width: 410px;
+left: 285px;
+z-index: 1;
+box-shadow: 15px 20px  70px  -5px  rgba(0,0,0,0.2);
+}
+.cont_modal_active {
+width: 700px;
+}
+
+.cont_modal_active > .cont_photo {
+box-shadow: 25px 10px 70px -5px rgba(0,0,0,0.3);
+}
+
+.cont_modal_active > .cont_photo > .cont_mins > .sub_mins {
+  opacity: 1;
+}
+
+.cont_modal_active  > .cont_photo > .cont_servings {
+  opacity: 1;
+}
+
+.cont_modal_active > .cont_photo  > .cont_detalles{
+  bottom: 0px;
+}
+
+  </style>
+
+  <title></title>
+
+
+
+
+
+
+
+<script type='text/javascript'>//<![CDATA[
+window.onload=function(){
+
+var c = 0;
+$("#ingredient_tab").click(function(e) {
+	$("#ingredient_tab").addClass('button-clicked');
+  $("#prep_tab").removeClass('button-clicked');
+    //e.preventDefault();
+    var content = $('#ingredient').html();
+    $('#pane').empty().append(content);
+  });
+  $("#prep_tab").click(function(e) {
+  $("#prep_tab").addClass('button-clicked');
+$("#ingredient_tab").removeClass('button-clicked');
+    //e.preventDefault();
+    var content = $('#prep').html();
+    $('#pane').empty().append(content);
+  });
+}
+
+//]]>
+
+</script>
+
+
+</head>
+
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<div class="card">
+
+ <!--<img src="https://s-media-cache-ak0.pinimg.com/736x/57/98/9f/57989f2a2e186e38bf93429aa395120c.jpg" alt="" />-->
+  <div class="image">
+
+<div class="btn-round blue">50<font size="2.5">servings</font></div>
+<div class="btn-round blue">50<font size="2.5">servings</font></div>
+<div class="btn-round blue">50<font size="2.5">servings</font></div>
+
+  </div>
+
+  <div class="container">
+
+
+
+    <div class="cont_text_ingredients">
+        <div class="cont_over_hidden">
+
+          <div class="cont_tabs"name="identifier">
+            <ul>
+              <li><a href="#identifier" id="ingredient_tab"><h4>INGREDIENTS</h4></a></li>
+              <li><a href="#identifier" id="prep_tab"><h4>PREPARATION</h4></a></li>
+            </ul>
+          </div>
+
+          <div id="pane">
+              <div class="cont_text_det_preparation">
+            <div class="cont_title_preparation">
+              <p>STEP 1</p>
+            </div>
+            <div class="cont_info_preparation">
+              <p>Heat oven to 375 degress</p>
+            </div>
+            <div class="cont_text_det_preparation">
+
+              <div class="cont_title_preparation">
+                <p>STEP 2</p>
+              </div>
+              <div class="cont_info_preparation">
+                <p>Heat oil in a large skillet over medium-low head. Add onion and bell papper. Cook gently until very soft, about 20 minutes. Add garlic and cook until tender, 1 to 2 minutes; stir in cumin, paprika and cook 1 minute. Pour in tomatoes and
+                  season with 3/4 teaspoon salt and 1/4 teaspoon pepper;</p>
+              </div>
+
+            </div>
+          </div>
+          </div>
+
+
+        </div>
+        <!--<div class="cont_btn_open_dets">
+          <a href="#e" onclick="open_close()"><i class="material-icons">&#xE314;</i></a>
+        </div>
+        -->
+
+      </div>
+  </div>
+</div>
+
+      <!------------------------------>
+      <div hidden id="ingredient" >
+        <link rel="stylesheet" href="http://static.forkthecookbook.com/css/forkthecookbook.min.css">
+        <table class="table">
+<thead>
+    <tr>
+        <th class="weight-volume">WEIGHT</th>
+        <th class="weight-volume">VOLUME</th>
+        <th class="intelligent-quantity">QUANTITY</th>
+        <th>INGREDIENT</th>
+            <th class="scaling-column">SCALING</th>
+    </tr>
+</thead>
+<tbody>
+        <tr>
+            <td class="recipe-unit weight-volume">
+                    790 g
+            </td>
+            <td class="recipe-unit weight-volume">
+                    2 can
+            </td>
+            <td class="recipe-unit intelligent-quantity">
+                    790 g (2 can)
+            </td>
+            <td class="recipe-ingredients">sweetened condensed milk
+            </td>
+            <td class="scaling-column">
+                    &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td class="recipe-unit weight-volume">
+                    180 g
+            </td>
+            <td class="recipe-unit weight-volume">
+                    &nbsp;
+            </td>
+            <td class="recipe-unit intelligent-quantity">
+                    180 g
+            </td>
+            <td class="recipe-ingredients">unsalted butter
+                    (chopped)
+            </td>
+            <td class="scaling-column">
+                    &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td class="recipe-unit weight-volume">
+                    375 g
+            </td>
+            <td class="recipe-unit weight-volume">
+                    &nbsp;
+            </td>
+            <td class="recipe-unit intelligent-quantity">
+                    375 g
+            </td>
+            <td class="recipe-ingredients">digestive biscuits
+                    (halved)
+            </td>
+            <td class="scaling-column">
+                    &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td class="recipe-unit weight-volume">
+                    &nbsp;
+            </td>
+            <td class="recipe-unit weight-volume">
+                    60 ml
+            </td>
+            <td class="recipe-unit intelligent-quantity">
+                    60 ml
+            </td>
+            <td class="recipe-ingredients">thickened cream
+            </td>
+            <td class="scaling-column">
+                    &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td class="recipe-unit weight-volume">
+                    &nbsp;
+            </td>
+            <td class="recipe-unit weight-volume">
+                    2 whole
+            </td>
+            <td class="recipe-unit intelligent-quantity">
+                    2 whole
+            </td>
+            <td class="recipe-ingredients">vanilla beans
+                    (seeds scraped out)
+            </td>
+            <td class="scaling-column">
+                    &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td class="recipe-unit weight-volume">
+                    75 g
+            </td>
+            <td class="recipe-unit weight-volume">
+                    &nbsp;
+            </td>
+            <td class="recipe-unit intelligent-quantity">
+                    75 g
+            </td>
+            <td class="recipe-ingredients">icing sugar
+                    (sifted)
+            </td>
+            <td class="scaling-column">
+                    &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td class="recipe-unit weight-volume">
+                    &nbsp;
+            </td>
+            <td class="recipe-unit weight-volume">
+                    4 whole
+            </td>
+            <td class="recipe-unit intelligent-quantity">
+                    4 whole
+            </td>
+            <td class="recipe-ingredients">bananas
+            </td>
+            <td class="scaling-column">
+                    &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td class="recipe-unit weight-volume">
+                    30 g
+            </td>
+            <td class="recipe-unit weight-volume">
+                    &nbsp;
+            </td>
+            <td class="recipe-unit intelligent-quantity">
+                    30 g
+            </td>
+            <td class="recipe-ingredients">dark chocolate
+                    (finely grated)
+            </td>
+            <td class="scaling-column">
+                    &nbsp;
+            </td>
+        </tr>
+
+</tbody>
+</table>
+
+      </div>
+      <!------------------------------>
+      <div hidden id ="prep">
+        <div class="cont_text_det_preparation">
+              <div class="cont_title_preparation">
+                <p>STEP 1</p>
+              </div>
+              <div class="cont_info_preparation">
+                <p>Heat oven to 375 degress</p>
+              </div>
+              <div class="cont_text_det_preparation">
+
+                <div class="cont_title_preparation">
+                  <p>STEP 2</p>
+                </div>
+                <div class="cont_info_preparation">
+                  <p>Heat oil in a large skillet over medium-low head. Add onion and bell papper. Cook gently until very soft, about 20 minutes. Add garlic and cook until tender, 1 to 2 minutes; stir in cumin, paprika and cook 1 minute. Pour in tomatoes and
+                    season with 3/4 teaspoon salt and 1/4 teaspoon pepper;</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+  <script>
+  // tell the embed parent frame the height of the content
+  if (window.parent && window.parent.parent){
+    window.parent.parent.postMessage(["resultsFrame", {
+      height: document.body.getBoundingClientRect().height,
+      slug: "yamghg6L"
+    }], "*")
+  }
+</script>
+
+</body>
+
+</html>
