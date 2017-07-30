@@ -57,7 +57,7 @@ angular.module('starter.controllers', [])
   })
   .controller('RecipeCtrl', function($scope, $stateParams, $http, $q) {
 
-  }
+  })
   .controller('SearchCtrl', function($scope, $stateParams, $http, $q) {
     $scope.CookBookURL =
       "http://forkthecookbook.com/search-recipes";
@@ -123,20 +123,64 @@ angular.module('starter.controllers', [])
         // ret[0] contains the response of the first call
         // ret[1] contains the second response
         // etc.
-        console.log("Auth.signin.success!")
-        console.log(result[0].data);
+        console.log("Auth.signin.success!");
+        //console.log(result[0].data);
         var html = $($.parseHTML( result[0].data )).find( "#recipeContainer" )[0];
-        console.log(html);
+        //console.log(html);
         var text = "";
         var allHtml = $(html).find('a');
+        var recipeCardInfo = {
+          link: [],
+          title: [],
+          img: [],
+          length: 0
+        };
         for(var i =0;i<allHtml.length;i++)
         {
-          text += 'url = http://forkthecookbook.com' + $(allHtml[i]).attr('href');
-          text += $(allHtml[i]).html();
+
+          try {
+            var link = 'http://forkthecookbook.com' + $(allHtml[i]).attr('href');
+            text += 'url = '+ link;
+            text += $(allHtml[i]).html();
+            var divRecipeBox = $(allHtml[i]).find('.recipe-box')[0];
+            console.log(divRecipeBox);
+            var title = $(divRecipeBox).find(".recipe-title").text();
+            var bg = $(divRecipeBox).css('background-image');
+            bg = bg.replace('url(','').replace(')','').replace(/\"/gi, "");
+            console.log("title: "+title);
+            console.log("background-image: "+bg)
+            console.log('link: '+link);
+            recipeCardInfo.link.push(link);
+            recipeCardInfo.title.push(title);
+            recipeCardInfo.img.push(bg);
+            recipeCardInfo.length++;
+
+
+          }catch (err){}
         }
-       // $scope.recipesX = text;
-        console.log(text);
-        $('#recipes').append(text);
+        console.log(recipeCardInfo);
+        var results = "<h2>Photo Card</h2></br>";
+
+        for(var i = 0; i < recipeCardInfo.length; i++)
+        {
+          var titleX = recipeCardInfo.title[i];
+          var imgX = recipeCardInfo.img[i];
+          if(imgX === '')
+          {
+            imgX = '../img/cooker.png';
+          }
+          var linkX = recipeCardInfo.link[i];
+
+          results += "<a href='"+linkX+"'><div class='w3-card-4' style='display: inline-block;margin-top: 20px;margin-bottom: 20px;margin-right: 30px; margin-left: 16px;width:20%'>"+
+           " <img src='"+imgX+"' alt='Norway' style='width:100%'>"+
+         "<div class='w3-container w3-center'>"+
+          "<p>"+titleX+"</p>"+
+        "</div>"+
+        "</div></a>";
+        }
+
+        //console.log(text);
+        $('#recipes').append(results);
         /*var iElement = angular.element( document.querySelector( 'body' ) );
         var svgTag = angular.element(text);
         angular.element(svgTag).appendTo(iElement[0]);*/
