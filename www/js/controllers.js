@@ -171,12 +171,12 @@ angular.module('starter.controllers', [])
           }
           var linkX = recipeCardInfo.link[i];
 
-          results += "<a href='"+linkX+"'><div class='w3-card-4' style='display: inline-block;margin-top: 20px;margin-bottom: 20px;margin-right: 30px; margin-left: 16px;width:20%'>"+
+          results += "<div class='w3-card-4' style='display: inline-block;margin-top: 20px;margin-bottom: 20px;margin-right: 30px; margin-left: 16px;width:20%'>"+
            " <img src='"+imgX+"' alt='Norway' style='width:100%'>"+
          "<div class='w3-container w3-center'>"+
           "<p>"+titleX+"</p>"+
         "</div>"+
-        "</div></a>";
+        "</div>";
         }
 
         //console.log(text);
