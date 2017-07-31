@@ -1,7 +1,21 @@
-<ion-view  cache-view="false" view-title="Random">
+<ion-view view-title="Random">
   <ion-content>
-    <h1>Random</h1>
+    <!DOCTYPE html>
+    <html>
+    <!--<h1>Random</h1>-->
 
-    <div class="w3-container" id="recipes">{{recipesX}}</div>
+    <div class="w3-container" id="recipesRand">{{recipesX}}</div>
+    <script type='text/javascript'>//<![CDATA[
+    window.onload=function(){
+      console.log("hello");
+      //$scope.randoSearch();
+      $scope.$apply();
+
+    }
+
+    //]]>
+
+    </script>
+    </html>
   </ion-content>
 </ion-view>

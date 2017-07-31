@@ -16,7 +16,7 @@
     <ion-header-bar class="bar-stable">
       <h1 class="title">Left</h1>
     </ion-header-bar>
-    <ion-content>
+    <ion-content ng-controller="RecipeCtrl as md">
       <ion-list>
         <ion-item menu-close href="#/app/search">
           Search
@@ -24,12 +24,12 @@
         <ion-item menu-close href="#/app/random">
           Random
         </ion-item>
-        <!--
 
-        <ion-item menu-close href="#/app/recipe">
+
+        <ion-item menu-close href="#/app/recipe/{{CurrentRecipe}}">
           Recipes
         </ion-item>
-        -->
+
       </ion-list>
     </ion-content>
   </ion-side-menu>

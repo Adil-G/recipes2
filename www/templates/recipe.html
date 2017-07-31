@@ -496,7 +496,12 @@ window.onload=function(){
 <div class="btn-round blue"><font size="4"><b>difficulty: <span id="diff">50</span></b></font></div>
 
   </div>
-
+  <div class="cont_tabs"name="identifier" style="position: relative">
+    <ul>
+      <li><a href="#/app/recipe/{{CurrentRecipe}}" id="ingredient_tab"><h4>INGREDIENTS</h4></a></li>
+      <li><a href="#/app/recipe/{{CurrentRecipe}}" id="prep_tab"><h4>PREPARATION</h4></a></li>
+    </ul>
+  </div>
   <div class="container">
 
 
@@ -504,12 +509,7 @@ window.onload=function(){
     <div class="cont_text_ingredients">
         <div class="cont_over_hidden">
 
-          <div class="cont_tabs"name="identifier">
-            <ul>
-              <li><a href="#/app/recipe/{{CurrentRecipe}}" id="ingredient_tab"><h4>INGREDIENTS</h4></a></li>
-              <li><a href="#/app/recipe/{{CurrentRecipe}}" id="prep_tab"><h4>PREPARATION</h4></a></li>
-            </ul>
-          </div>
+
 
           <div id="pane">
               <div class="cont_text_det_preparation">
