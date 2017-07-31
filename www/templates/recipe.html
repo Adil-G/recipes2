@@ -1,4 +1,5 @@
-
+<ion-view cache-view="false" view-title="Recipe">
+  <ion-content>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,14 +41,14 @@
 .btn-round{
     margin-left: 20px;
   background-color: rgba(255,253,112,0.8);
-  border-radius: 999em;
-top: 20%;
-  height: 90px;
-  width: 90px;
+  //border-radius: 999em;
+top: 0%;
+  height: 33%;
+  width: 50%;
 
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 
-  line-height: 90px;
+  line-height: 33%;
  text-align: center;
 
   font-size: 36px;
@@ -490,9 +491,9 @@ window.onload=function(){
  <!--<img src="https://s-media-cache-ak0.pinimg.com/736x/57/98/9f/57989f2a2e186e38bf93429aa395120c.jpg" alt="" />-->
   <div class="image">
 
-<div class="btn-round blue">50<font size="2.5">servings</font></div>
-<div class="btn-round blue">50<font size="2.5">servings</font></div>
-<div class="btn-round blue">50<font size="2.5">servings</font></div>
+<div class="btn-round blue"><font size="4"><b>serves: <span id="serves">50</span></b></font></div><br>
+<div class="btn-round blue"><font size="4"><b><span id="time">50</span></b></font></div><br>
+<div class="btn-round blue"><font size="4"><b>difficulty: <span id="diff">50</span></b></font></div>
 
   </div>
 
@@ -545,6 +546,7 @@ window.onload=function(){
 
       <!------------------------------>
       <div hidden id="ingredient" >
+        <!--
         <link rel="stylesheet" href="http://static.forkthecookbook.com/css/forkthecookbook.min.css">
         <table class="table">
 <thead>
@@ -693,7 +695,7 @@ window.onload=function(){
 
 </tbody>
 </table>
-
+-->
       </div>
       <!------------------------------>
       <div hidden id ="prep">
@@ -716,3 +718,5 @@ window.onload=function(){
 </body>
 
 </html>
+  </ion-content>
+</ion-view>

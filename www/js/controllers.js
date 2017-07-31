@@ -108,12 +108,13 @@ angular.module('starter.controllers', [])
         var lines = $(instructionsChunks[i]).find('li');
         for(var line = 0; line < lines.length; line++)
         {
+          console.log("line = "+line);
           var step = $($(lines[line])[0]).text();
 
 
 
           var newStep = '<div class="cont_title_preparation">' +
-            ' <p>STEP '+(i+1)+'</p>' +
+            ' <p>STEP '+(line+1)+'</p>' +
             '</div>' +
             '<div class="cont_info_preparation">' +
             '<p>'+step+'</p>' +
@@ -130,6 +131,41 @@ angular.module('starter.controllers', [])
         //e.preventDefault();
         var content = $('#prep').html();
         $('#pane').empty().append(content);
+        var table = jqueryHTML.find('.table')[2];
+       $(table).remove('.recipe-instructions');
+        //$(table).find('thead th').children().slice($(table).find('thead th').length -1).detach();;
+      var index = $(table).find('thead th').length -1;
+        //$(table).remove($(instructionsHeader));
+      //console.log(instructionsHeader);
+        $("#ingredient").append("<link rel='stylesheet' href='http://static.forkthecookbook.com/css/forkthecookbook.min.css'>");
+        $("#ingredient").append( $(table).prop('outerHTML'));
+        $("#ingredient .table thead th:eq("+index+")").remove();
+        $("#ingredient .table .recipe-instructions").remove();
+        //console.log( $(table).prop('outerHTML'));
+      for(var i =0; i< 3; i++)
+      {
+        try {
+          var value = $(jqueryHTML.find('.span4 .table td')[i]).text();
+          console.log(value);
+          switch(i)
+          {
+            case 0:
+              //serves
+              $('#serves').empty().append(value);
+              break;
+            case 1:
+              //time
+              $('#time').empty().append(value);
+              break;
+            case 2:
+              //diff
+              $('#diff').empty().append(value);
+              break;
+            default:
+              break;
+          }
+        }catch(err) {}
+      }
       var text = "";
     }
         // recipe-instructions
@@ -192,7 +228,7 @@ angular.module('starter.controllers', [])
       arr.push(
       $http({
         method: "GET",
-        params: {"q" : "chicken"},
+        params: {"q" : query},
         headers: headers,
         url: $scope.CookBookURL
       })
@@ -259,6 +295,7 @@ angular.module('starter.controllers', [])
 
         //console.log(text);
         $('#recipes').append(results);
+
         /*var iElement = angular.element( document.querySelector( 'body' ) );
         var svgTag = angular.element(text);
         angular.element(svgTag).appendTo(iElement[0]);*/
