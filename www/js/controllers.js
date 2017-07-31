@@ -315,4 +315,130 @@ angular.module('starter.controllers', [])
        return data;
        });*/
     };
+  })
+  .controller('RandomCtrl', function($scope, $stateParams, $http, $q) {
+    var random_endpoint = "http://forkthecookbook.com/recipes/random";
+
+    var randoSearch = function () {
+      var arr = [];
+
+      /*for (var a = 0; a < subs.length; ++a) {
+       arr.push($http.get(url));
+       }*/
+      var headers = {
+        'Access-Control-Allow-Origin' : '*',
+        'Access-Control-Allow-Origin' : 'http://localhost:8101',
+        'Access-Control-Allow-Methods' : 'POST, GET, OPTIONS, PUT',
+        'Content-Type': 'application/json',
+        'Accept': 'text/html'
+      };
+      /*
+       $http({
+       method: "GET",
+       headers: headers,
+       url: $scope.CookBookURL
+       }).success(function(result) {
+       console.log("Auth.signin.success!")
+       console.log(result);
+       var html = $($.parseHTML( result )).find( "#recipeContainer" )[0];
+       console.log(html);// $('body').append(html);
+       }).error(function(data, status, headers, config) {
+       console.log("Auth.signin.error!")
+       console.log(data);
+       console.log(status);
+       console.log(headers);
+       console.log(config);
+       })
+       *///http://www.recipepuppy.com/api/?i=onions,garlic&q=omelet&p=3
+      arr.push(
+        $http({
+          method: "GET",
+          params: {},
+          headers: headers,
+          url: random_endpoint
+        })
+      );
+      $q.all(arr).then(function (result) {
+        // ret[0] contains the response of the first call
+        // ret[1] contains the second response
+        // etc.
+        console.log("Auth.signin.success!");
+        //console.log(result[0].data);
+        var html = $($.parseHTML( result[0].data )).find( "#recipeContainer" )[0];
+        //console.log(html);
+        var text = "";
+        var allHtml = $(html).find('a');
+        var recipeCardInfo = {
+          link: [],
+          title: [],
+          img: [],
+          length: 0
+        };
+        for(var i =0;i<allHtml.length;i++)
+        {
+
+          try {
+            var link = 'http://forkthecookbook.com' + $(allHtml[i]).attr('href');
+            text += 'url = '+ link;
+            text += $(allHtml[i]).html();
+            var divRecipeBox = $(allHtml[i]).find('.recipe-box')[0];
+            console.log(divRecipeBox);
+            var title = $(divRecipeBox).find(".recipe-title").text();
+            var bg = $(divRecipeBox).css('background-image');
+            bg = bg.replace('url(','').replace(')','').replace(/\"/gi, "");
+            console.log("title: "+title);
+            console.log("background-image: "+bg)
+            console.log('link: '+link);
+            recipeCardInfo.link.push(link);
+            recipeCardInfo.title.push(title);
+            recipeCardInfo.img.push(bg);
+            recipeCardInfo.length++;
+
+
+          }catch (err){}
+        }
+        console.log(recipeCardInfo);
+        var results = "<h2>Photo Card</h2></br>";
+
+        for(var i = 0; i < recipeCardInfo.length; i++)
+        {
+          var titleX = recipeCardInfo.title[i];
+          var imgX = recipeCardInfo.img[i];
+          if(imgX === '')
+          {
+            imgX = '../img/cooker.png';
+          }
+          var linkX = recipeCardInfo.link[i];
+
+          results += "<a href='#/app/recipe/"+linkX.substring(linkX.lastIndexOf("/")+1)+"'><div class='w3-card-4' style='display: inline-block;margin-top: 20px;margin-bottom: 20px;margin-right: 30px; margin-left: 16px;width:20%'>"+
+            " <img src='"+imgX+"' alt='Norway' style='width:100%'>"+
+            "<div class='w3-container w3-center'>"+
+            "<p>"+titleX+"</p>"+
+            "</div>"+
+            "</div></a>";
+        }
+
+        //console.log(text);
+        $('#recipes').append(results);
+
+        /*var iElement = angular.element( document.querySelector( 'body' ) );
+         var svgTag = angular.element(text);
+         angular.element(svgTag).appendTo(iElement[0]);*/
+      });
+      /*var req = $scope.httpRequest("http://forkthecookbook.com/search-recipes?q=butter+chicken", "HEAD");  // In this example you don't want to GET the full page contents
+       alert(req.status == 200 ? "found!" : "failed");  // We didn't provided an async proc so this will be executed after request completion only
+       console.log(req);*/
+      /*
+       $http.get($scope.CookBookURL, {params: {"q": "butter+chicken"}, headers: headers})
+       .success(function (data) {
+       console.log(data);
+       return data;
+
+       })
+       .error(function (data) {
+       console.log(data);
+       return data;
+       });*/
+    };
+    randoSearch();
   });

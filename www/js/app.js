@@ -80,7 +80,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.main'])
           controller: 'RecipeCtrl'
         }
       }
-    });
+    })
+      .state('app.random', {
+        url: '/random',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/random.html',
+            controller: 'RandomCtrl'
+          }
+        }
+      });
+
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/playlists');
   });
