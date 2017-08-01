@@ -139,33 +139,111 @@ angular.module('starter.controllers', [])
 
   })
   .controller('RecipeCtrl', function($scope, $stateParams, $http, $q, StorageService) {
-    var currRecipe = $stateParams.link;
-    var fullLink = "http://forkthecookbook.com/recipes/" + currRecipe;
-    if(currRecipe == '') {
-      try {
-        var recipeCardInfoList = StorageService.getAll();
-        var linkY = recipeCardInfoList[recipeCardInfoList.length - 1]
-        fullLink = linkY.link;
-      }catch (err){}
+
+    $("#ingredient_tab").click(function (e) {
+      $("#ingredient_tab").addClass('button-clicked');
+      $("#prep_tab").removeClass('button-clicked');
+      //e.preventDefault();
+      var content = $('#ingredient').html();
+      $('#pane').empty().append(content);
+    });
+    $("#prep_tab").click(function (e) {
+      $("#prep_tab").addClass('button-clicked');
+      $("#ingredient_tab").removeClass('button-clicked');
+      //e.preventDefault();
+      var content = $('#prep').html();
+      $('#pane').empty().append(content);
+    });
+    var fullLink = "";
+    var recipeImageA = "";
+    var recipeTitleA = "";
+    try {
+      var recipeCardInfoList = StorageService.getAll();
+      var linkY = recipeCardInfoList[recipeCardInfoList.length - 1]
+      fullLink = linkY.link;
+      recipeImageA = linkY.img;
+      recipeTitleA = linkY.title;
+    }catch (err){}
+    if(fullLink.includes("http://opensourcecook.com"))
+    {
+      console.log("entered recipe...");
+
+
+
+      //console.log($scope.CurrentRecipe);
+      var arr = [];
+      var headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': 'http://localhost:8101',
+        'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
+        'Content-Type': 'application/json',
+        'Accept': 'text/html'
+      };
+      arr.push(
+        $http({
+          method: "GET",
+          params: {},
+          headers: headers,
+          url: fullLink
+        })
+      );
+      $q.all(arr).then(function (result) {
+
+          console.log("Auth.signin.success!");
+
+          //var html = $($.parseHTML( result[0].data )).find( "#recipeContainer" )[0];
+
+          var jqueryHTML = $($.parseHTML(result[0].data));
+          //var recipeTitle = $($(jqueryHTML.find('.content-title h1')[0]).remove('small')).text();
+
+          // $scope.add(recipeInfo);
+          // var recipeImage = 'http://media.forkthecookbook.com/banana-hemp-granola-a26ef_MAIN.jpg'
+          //console.log("recipe image = "+recipeImage);
+          try {
+            var instructionsChunks = jqueryHTML.find('#content ol');
+            var preparationsDiv = $($('#prep').find('.cont_text_det_preparation')[0]);
+            preparationsDiv.empty();
+            var lines = $(instructionsChunks[0]).find('li');
+            for (var line = 0; line < lines.length; line++) {
+              console.log("line = " + line);
+              var step = $($(lines[line])[0]).text();
+
+
+              var newStep = '<div class="cont_title_preparation">' +
+                ' <p>STEP ' + (line + 1) + '</p>' +
+                '</div>' +
+                '<div class="cont_info_preparation">' +
+                '<p>' + step + '</p>' +
+                '</div>';
+              preparationsDiv.append(newStep);
+
+            }
+            console.log();
+          }catch (err)
+          {
+
+          }
+
+          $("#prep_tab").addClass('button-clicked');
+          $("#ingredient_tab").removeClass('button-clicked');
+          //e.preventDefault();
+          var content = $('#prep').html();
+          $('#pane').empty().append(content);
+
+
+          var table = jqueryHTML.find("#content p:contains('Ingredients:')")[0];
+          $("#ingredient").empty();
+          $("#ingredient").append("<link rel='stylesheet' href='http://static.forkthecookbook.com/css/forkthecookbook.min.css'>");
+          $("#ingredient").append($(table).prop('outerHTML'));
+
+
+
+          var text = "";
+        }
+        // recipe-instructions
+      );
     }
-
-    if(true||$stateParams.link != '') {
-      $scope.CurrentRecipe = $stateParams.link;
-
-      $("#ingredient_tab").click(function (e) {
-        $("#ingredient_tab").addClass('button-clicked');
-        $("#prep_tab").removeClass('button-clicked');
-        //e.preventDefault();
-        var content = $('#ingredient').html();
-        $('#pane').empty().append(content);
-      });
-      $("#prep_tab").click(function (e) {
-        $("#prep_tab").addClass('button-clicked');
-        $("#ingredient_tab").removeClass('button-clicked');
-        //e.preventDefault();
-        var content = $('#prep').html();
-        $('#pane').empty().append(content);
-      });
+    else {
       console.log("entered recipe...");
 
 
@@ -209,7 +287,7 @@ angular.module('starter.controllers', [])
 
           var instructionsChunks = jqueryHTML.find('.recipe-instructions');
           var preparationsDiv = $($('#prep').find('.cont_text_det_preparation')[0]);
-          var instructions = [];
+
           for (var i = 0; i < instructionsChunks.length; i++) {
             var lines = $(instructionsChunks[i]).find('li');
             for (var line = 0; line < lines.length; line++) {
@@ -224,12 +302,11 @@ angular.module('starter.controllers', [])
                 '<p>' + step + '</p>' +
                 '</div>';
               preparationsDiv.append(newStep);
-              instructions.push(step);
+
             }
             console.log();
           }
 
-          console.log(instructions);
           $("#prep_tab").addClass('button-clicked');
           $("#ingredient_tab").removeClass('button-clicked');
           //e.preventDefault();
@@ -300,6 +377,17 @@ angular.module('starter.controllers', [])
         url: $scope.CookBookURL
       })
       );
+      arr.push(
+        $http({
+          method: "GET",
+          params: {"s" : query},
+          headers: headers,
+          url: "http://opensourcecook.com/"
+        })
+      );
+      var results = "</br><h4>Results: </h4>";
+      var recipeListObject = $('#recipes');
+      recipeListObject.empty();
       $q.all(arr).then(function (result) {
         // ret[0] contains the response of the first call
         // ret[1] contains the second response
@@ -307,6 +395,87 @@ angular.module('starter.controllers', [])
         console.log("Auth.signin.success!");
         //console.log(result[0].data);
         var html = $($.parseHTML( result[0].data )).find( "#recipeContainer" )[0];
+        var htmlOpenSourceCookbook = $($.parseHTML( result[1].data ));
+        var postList = htmlOpenSourceCookbook.find( "h1[id*='post']" );
+        var listOfImages = [];
+
+        for(var j = 0; j < postList.length;j++)
+        {
+          var posts = postList[j];
+          console.log("opensourcecookbook: "+posts);
+          console.log($(posts).text());
+          console.log($($(posts).find("a")[0]).attr("href"));
+          listOfImages.push(
+            $http({
+              method: "GET",
+              params: {},
+              headers: headers,
+              url: $($(posts).find("a")[0]).attr("href")
+            })
+          );
+        }
+
+        $q.all(listOfImages).then(function (page) {
+          var cardJSON = {
+            link: [],
+            title: [],
+            img: [],
+            length: 0
+          };
+          for(var res = 0; res < page.length; res++)
+          {
+            var recipeImage = $($($.parseHTML( page[res].data )).find( "#content img" )[0]).attr("src");
+            if(recipeImage === "http://opensourcecook.com/wp-content/themes/emerald-stretch/img/calendar.gif"
+            || recipeImage === undefined || recipeImage === null)
+            {
+              recipeImage = '../img/cooker.png';
+            }
+            var recipeTitle = $($($.parseHTML( page[res].data )).find( "#content h1" )[0]).text();
+            var recipeLink = page[res].config.url;
+            cardJSON.img.push(recipeImage);
+            cardJSON.title.push(recipeTitle);
+            cardJSON.link.push(recipeLink);
+            cardJSON.length++;
+          }
+          for(var i = 0; i < cardJSON.length; i++)
+          {
+            var titleX = cardJSON.title[i];
+            var imgX = cardJSON.img[i];
+            if(imgX === '')
+            {
+              imgX = '../img/cooker.png';
+            }
+            var linkX = cardJSON.link[i];
+            //$scope.CurrentRecipe = linkX.substring(linkX.lastIndexOf("/")+1);
+            var recipeInfo = {
+              link: linkX,
+              title: titleX,
+              img: imgX
+            };
+
+
+            function goToRecipe( singleRecipeJSON ){
+              return function(){
+                console.log('HEYO');
+                //$scope.CurrentRecipeInfo = singleRecipeJSON;
+                StorageService.add(singleRecipeJSON);
+                console.log(JSON.stringify(singleRecipeJSON));
+                $state.go("app.recipe",{});
+              }
+            }
+            var cardInfo = "<div class='w3-card-4' style='display: inline-block;margin-top: 20px;margin-bottom: 20px;margin-right: 30px; margin-left: 16px;width:20%'>"+
+              " <img src='"+imgX+"' alt='X' style='width:100%'>"+
+              "<div class='w3-container w3-center'>"+
+              "<p>"+titleX+"</p>"+
+              "</div>"+
+              "</div>";
+
+            var newRecipeCard = $($.parseHTML(cardInfo));
+            newRecipeCard.click(goToRecipe(recipeInfo));
+            recipeListObject.append(newRecipeCard);
+          }
+
+        });
         //console.log(html);
         var text = "";
         var allHtml = $(html).find('a');
@@ -340,9 +509,8 @@ angular.module('starter.controllers', [])
           }catch (err){}
         }
         console.log(recipeCardInfo);
-        var results = "</br><h4>Results: </h4>";
-        var recipeListObject = $('#recipes');
-        recipeListObject.empty();
+
+
         for(var i = 0; i < recipeCardInfo.length; i++)
         {
           var titleX = recipeCardInfo.title[i];
