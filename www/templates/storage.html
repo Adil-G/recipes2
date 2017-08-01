@@ -1,15 +1,15 @@
-<ion-view  ng-app="starter" view-title="Random">
+<ion-view  ng-app="starter" view-title="History">
   <ion-content>
     <!DOCTYPE html>
     <html>
     <!--<h1>Random</h1>-->
 
-    <div class="w3-container" id="recipesRand">{{recipesX}}</div>
+    <div class="w3-container" id="recipesHistory">{{recipesX}}</div>
     <script type='text/javascript'>//<![CDATA[
-    window.onload=function(){
+    window.onfocus=function(){
       console.log("hello");
       //$scope.randoSearch();
-
+     // $scope.$broadcast('app.storage');
       $scope.$apply();
 
     }

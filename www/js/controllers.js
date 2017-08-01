@@ -55,7 +55,100 @@ angular.module('starter.controllers', [])
   .controller('PlaylistCtrl', function($scope, $stateParams) {
 
   })
-  .controller('RecipeCtrl', function($scope, $stateParams, $http, $q) {
+  .factory ("StorageService", function ($localStorage) {
+
+    $localStorage = $localStorage.$default({
+      things: []
+    });
+    var _getAll = function () {
+      return $localStorage.things;
+    };
+    var _add = function (thing) {
+      $localStorage.things.push(thing);
+    };
+    var _remove = function (thing) {
+      $localStorage.things.splice($localStorage.things.indexOf(thing), 1);
+    };
+    return {
+      getAll: _getAll,
+      add: _add,
+      remove: _remove
+    };
+  })
+  .controller( "MainCtrl", function ($scope, StorageService, $state) {
+      console.log("in history tab");
+      $scope.things = StorageService.getAll();
+      $scope.add = function (newThing) {
+        StorageService.add(newThing);
+      };
+      $scope.remove = function (thing) {
+        StorageService.remove(thing);
+      };
+      $scope.printThings = function()
+        {
+
+        }
+    var recipeCardInfoList = StorageService.getAll();
+    console.log(recipeCardInfoList);
+    var results = "</br><h4>Results: </h4>";
+    var recipeListObject = $('#recipesHistory');
+    recipeListObject.empty();
+    for(var i = (recipeCardInfoList.length -1); i >=0; i--)
+    {
+      var recipeCardInfo = recipeCardInfoList[i];
+      var titleX = recipeCardInfo.title;
+      var imgX = recipeCardInfo.img;
+      if(imgX === '')
+      {
+        imgX = '../img/cooker.png';
+      }
+      var linkX = recipeCardInfo.link;
+      //$scope.CurrentRecipe = linkX.substring(linkX.lastIndexOf("/")+1);
+      var recipeInfo = {
+        link: linkX,
+        title: titleX,
+        img: imgX
+      };
+
+
+      function goToRecipe( singleRecipeJSON ){
+        return function(){
+          console.log('HEYO');
+          //$scope.CurrentRecipeInfo = singleRecipeJSON;
+          StorageService.add(singleRecipeJSON);
+          console.log(JSON.stringify(singleRecipeJSON));
+          $state.go("app.recipe",{});
+        }
+      }
+      var cardInfo = "<div class='w3-card-4' style='display: inline-block;margin-top: 20px;margin-bottom: 20px;margin-right: 30px; margin-left: 16px;width:20%'>"+
+        " <img src='"+imgX+"' alt='Norway' style='width:100%'>"+
+        "<div class='w3-container w3-center'>"+
+        "<p>"+titleX+"</p>"+
+        "</div>"+
+        "</div>";
+
+      var newRecipeCard = $($.parseHTML(cardInfo));
+      newRecipeCard.click(goToRecipe(recipeInfo));
+      recipeListObject.append(newRecipeCard);
+    }
+
+
+})
+
+  .controller('StorageService', function($scope, $stateParams, $localStorage) {
+
+  })
+  .controller('RecipeCtrl', function($scope, $stateParams, $http, $q, StorageService) {
+    var currRecipe = $stateParams.link;
+    var fullLink = "http://forkthecookbook.com/recipes/" + currRecipe;
+    if(currRecipe == '') {
+      try {
+        var recipeCardInfoList = StorageService.getAll();
+        var linkY = recipeCardInfoList[recipeCardInfoList.length - 1]
+        fullLink = linkY.link;
+      }catch (err){}
+    }
+
     if(true||$stateParams.link != '') {
       $scope.CurrentRecipe = $stateParams.link;
 
@@ -74,10 +167,10 @@ angular.module('starter.controllers', [])
         $('#pane').empty().append(content);
       });
       console.log("entered recipe...");
-      var fullLink = "http://forkthecookbook.com/recipes/" + $stateParams.link;
 
 
-      console.log($scope.CurrentRecipe);
+
+      //console.log($scope.CurrentRecipe);
       var arr = [];
       var headers = {
         'Access-Control-Allow-Origin': '*',
@@ -96,11 +189,24 @@ angular.module('starter.controllers', [])
       );
       $q.all(arr).then(function (result) {
 
-          console.log("Auth.signin.success!");
+        console.log("Auth.signin.success!");
 
-          //var html = $($.parseHTML( result[0].data )).find( "#recipeContainer" )[0];
+        //var html = $($.parseHTML( result[0].data )).find( "#recipeContainer" )[0];
 
-          var jqueryHTML = $($.parseHTML(result[0].data));
+        var jqueryHTML = $($.parseHTML(result[0].data));
+        //var recipeTitle = $($(jqueryHTML.find('.content-title h1')[0]).remove('small')).text();
+        var recipeImageUrl = "http://media.forkthecookbook.com/"+$stateParams.link.substring($stateParams.link.lastIndexOf("-")) + $stateParams.imgExtention;
+        var recipeInfo =
+          {
+            url: $stateParams.link,
+            title: $stateParams.title,
+            img: recipeImageUrl
+
+          };
+         // $scope.add(recipeInfo);
+         // var recipeImage = 'http://media.forkthecookbook.com/banana-hemp-granola-a26ef_MAIN.jpg'
+          //console.log("recipe image = "+recipeImage);
+
           var instructionsChunks = jqueryHTML.find('.recipe-instructions');
           var preparationsDiv = $($('#prep').find('.cont_text_det_preparation')[0]);
           var instructions = [];
@@ -169,28 +275,10 @@ angular.module('starter.controllers', [])
       );
     }
   })
-  .controller('SearchCtrl', function($scope, $stateParams, $http, $q) {
+  .controller('SearchCtrl', function($scope, $stateParams, $http, $q, StorageService, $state) {
     $scope.CookBookURL =
       "http://forkthecookbook.com/search-recipes";
-    $scope.httpRequest = function (address, reqType, asyncProc) {
-      var r = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
 
-      if (asyncProc)
-        r.onreadystatechange = function () {
-          if (this.readyState == 4) asyncProc(this);
-
-        };
-      else{}
-       // r.timeout = 4000;  // Reduce default 2mn-like timeout to 4 s if synchronous
-      r.open(reqType, address, !(!asyncProc));
-      r.setRequestHeader('Access-Control-Allow-Origin', '*');
-      r.setRequestHeader('Access-Control-Allow-Origin', 'http://localhost:8101');
-      r.setRequestHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, HEAD');
-      r.setRequestHeader('Content-Type', 'application/json');
-      r.setRequestHeader('Accept', 'text/html');
-      r.send();
-      return r;
-    };
     $scope.Search = function (query) {
       var arr = [];
 
@@ -204,24 +292,6 @@ angular.module('starter.controllers', [])
         'Content-Type': 'application/json',
         'Accept': 'text/html'
       };
-      /*
-       $http({
-       method: "GET",
-       headers: headers,
-       url: $scope.CookBookURL
-       }).success(function(result) {
-       console.log("Auth.signin.success!")
-       console.log(result);
-       var html = $($.parseHTML( result )).find( "#recipeContainer" )[0];
-       console.log(html);// $('body').append(html);
-       }).error(function(data, status, headers, config) {
-       console.log("Auth.signin.error!")
-       console.log(data);
-       console.log(status);
-       console.log(headers);
-       console.log(config);
-       })
-       *///http://www.recipepuppy.com/api/?i=onions,garlic&q=omelet&p=3
       arr.push(
       $http({
         method: "GET",
@@ -271,7 +341,8 @@ angular.module('starter.controllers', [])
         }
         console.log(recipeCardInfo);
         var results = "</br><h4>Results: </h4>";
-
+        var recipeListObject = $('#recipes');
+        recipeListObject.empty();
         for(var i = 0; i < recipeCardInfo.length; i++)
         {
           var titleX = recipeCardInfo.title[i];
@@ -281,17 +352,34 @@ angular.module('starter.controllers', [])
             imgX = '../img/cooker.png';
           }
           var linkX = recipeCardInfo.link[i];
-          $scope.CurrentRecipe = linkX.substring(linkX.lastIndexOf("/")+1);
-          results += "<a href='#/app/recipe/"+linkX.substring(linkX.lastIndexOf("/")+1)+"'><div class='w3-card-4' style='display: inline-block;margin-top: 20px;margin-bottom: 20px;margin-right: 30px; margin-left: 16px;width:20%'>"+
-           " <img src='"+imgX+"' alt='Norway' style='width:100%'>"+
-         "<div class='w3-container w3-center'>"+
-          "<p>"+titleX+"</p>"+
-        "</div>"+
-        "</div></a>";
-        }
+          //$scope.CurrentRecipe = linkX.substring(linkX.lastIndexOf("/")+1);
+          var recipeInfo = {
+            link: linkX,
+            title: titleX,
+            img: imgX
+          };
 
-        //console.log(text);
-        $('#recipes').empty().append(results);
+
+          function goToRecipe( singleRecipeJSON ){
+            return function(){
+              console.log('HEYO');
+              //$scope.CurrentRecipeInfo = singleRecipeJSON;
+              StorageService.add(singleRecipeJSON);
+              console.log(JSON.stringify(singleRecipeJSON));
+              $state.go("app.recipe",{});
+            }
+          }
+          var cardInfo = "<div class='w3-card-4' style='display: inline-block;margin-top: 20px;margin-bottom: 20px;margin-right: 30px; margin-left: 16px;width:20%'>"+
+            " <img src='"+imgX+"' alt='Norway' style='width:100%'>"+
+            "<div class='w3-container w3-center'>"+
+            "<p>"+titleX+"</p>"+
+            "</div>"+
+            "</div>";
+
+          var newRecipeCard = $($.parseHTML(cardInfo));
+          newRecipeCard.click(goToRecipe(recipeInfo));
+          recipeListObject.append(newRecipeCard);
+        }
 
         /*var iElement = angular.element( document.querySelector( 'body' ) );
         var svgTag = angular.element(text);
@@ -313,9 +401,12 @@ angular.module('starter.controllers', [])
        });*/
     };
   })
-  .controller('RandomCtrl', function($scope, $stateParams, $http, $q) {
+  .controller('RandomCtrl', function($scope, $stateParams, $http, $q,  $state, StorageService) {
     var random_endpoint = "http://forkthecookbook.com/recipes/random";
-
+    $scope.goto = function(pageId)
+    {
+      $state.go(pageId,{});
+    };
     $scope.randoSearch = function () {
       var arr = [];
 
@@ -396,7 +487,8 @@ angular.module('starter.controllers', [])
         }
         console.log(recipeCardInfo);
         var results = "";//"<h2>Photo Card</h2></br>";
-
+        var recipeListObject = $('#recipesRand');
+        recipeListObject.empty();
         for(var i = 0; i < recipeCardInfo.length; i++)
         {
           var titleX = recipeCardInfo.title[i];
@@ -406,17 +498,37 @@ angular.module('starter.controllers', [])
             imgX = '../img/cooker.png';
           }
           var linkX = recipeCardInfo.link[i];
-          $scope.CurrentRecipe = linkX.substring(linkX.lastIndexOf("/")+1);
-          results += "<a href='#/app/recipe/"+linkX.substring(linkX.lastIndexOf("/")+1)+"'><div class='w3-card-4' style='display: inline-block;margin-top: 20px;margin-bottom: 20px;margin-right: 30px; margin-left: 16px;width:20%'>"+
+          //$scope.CurrentRecipe = linkX.substring(linkX.lastIndexOf("/")+1);
+          var recipeInfo = {
+              link: linkX,
+              title: titleX,
+              img: imgX
+          };
+
+
+          function goToRecipe( singleRecipeJSON ){
+            return function(){
+              console.log('HEYO');
+              //$scope.CurrentRecipeInfo = singleRecipeJSON;
+              StorageService.add(singleRecipeJSON);
+              console.log(JSON.stringify(singleRecipeJSON));
+              $state.go("app.recipe",{});
+            }
+          }
+          var cardInfo = "<div class='w3-card-4' style='display: inline-block;margin-top: 20px;margin-bottom: 20px;margin-right: 30px; margin-left: 16px;width:20%'>"+
             " <img src='"+imgX+"' alt='Norway' style='width:100%'>"+
             "<div class='w3-container w3-center'>"+
             "<p>"+titleX+"</p>"+
             "</div>"+
-            "</div></a>";
+            "</div>";
+
+          var newRecipeCard = $($.parseHTML(cardInfo));
+          newRecipeCard.click(goToRecipe(recipeInfo));
+          recipeListObject.append(newRecipeCard);
         }
 
         //console.log(text);
-        $('#recipesRand').empty().append(results);
+       // $('#recipesRand').empty().append(recipeListObject);
 
         /*var iElement = angular.element( document.querySelector( 'body' ) );
          var svgTag = angular.element(text);

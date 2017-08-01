@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.main'])
+angular.module('starter', ['ionic', 'ngStorage', 'starter.controllers', 'starter.main','ngRoute','ui.router'])
 
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -21,9 +21,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.main'])
       }
     });
   })
+  // create a new factory
 
 
-
+  .config(function($routeProvider) {
+    $routeProvider.when('/storage', { templateUrl: "templates/storage.html", controller: "MainCtrl" })
+  })
   .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
    $httpProvider.defaults.withCredentials = true;
     $stateProvider
@@ -89,8 +92,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.main'])
             controller: 'RandomCtrl'
           }
         }
+      })
+      .state('app.storage', {
+        url: '/storage',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/storage.html',
+            controller: 'MainCtrl'
+          }
+        }
       });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/playlists');
-  });
+    $urlRouterProvider.otherwise('/app/random');
+  })
+
