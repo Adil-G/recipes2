@@ -139,7 +139,7 @@ angular.module('starter.controllers', [])
 
   })
   .controller('RecipeCtrl', function($scope, $stateParams, $http, $q, StorageService) {
-
+    $scope.pagetitle = 'Recipe';
     $("#ingredient_tab").click(function (e) {
       $("#ingredient_tab").addClass('button-clicked');
       $("#prep_tab").removeClass('button-clicked');
@@ -163,7 +163,15 @@ angular.module('starter.controllers', [])
       fullLink = linkY.link;
       recipeImageA = linkY.img;
       recipeTitleA = linkY.title;
+      $scope.pagetitle = recipeTitleA;
     }catch (err){}
+    try{
+      $(".image").css("background-image", "url('"+recipeImageA+"')");
+    }catch (err)
+    {
+
+    }
+
     if(fullLink.includes("http://opensourcecook.com"))
     {
       console.log("entered recipe...");
@@ -273,14 +281,7 @@ angular.module('starter.controllers', [])
 
         var jqueryHTML = $($.parseHTML(result[0].data));
         //var recipeTitle = $($(jqueryHTML.find('.content-title h1')[0]).remove('small')).text();
-        var recipeImageUrl = "http://media.forkthecookbook.com/"+$stateParams.link.substring($stateParams.link.lastIndexOf("-")) + $stateParams.imgExtention;
-        var recipeInfo =
-          {
-            url: $stateParams.link,
-            title: $stateParams.title,
-            img: recipeImageUrl
 
-          };
          // $scope.add(recipeInfo);
          // var recipeImage = 'http://media.forkthecookbook.com/banana-hemp-granola-a26ef_MAIN.jpg'
           //console.log("recipe image = "+recipeImage);
@@ -323,7 +324,7 @@ angular.module('starter.controllers', [])
           $("#ingredient .table thead th:eq(" + index + ")").remove();
           $("#ingredient .table .recipe-instructions").remove();
           //console.log( $(table).prop('outerHTML'));
-          for (var i = 0; i < 3; i++) {
+          /*for (var i = 0; i < 3; i++) {
             try {
               var value = $(jqueryHTML.find('.span4 .table td')[i]).text();
               console.log(value);
@@ -345,7 +346,7 @@ angular.module('starter.controllers', [])
               }
             } catch (err) {
             }
-          }
+          }*/
           var text = "";
         }
         // recipe-instructions
