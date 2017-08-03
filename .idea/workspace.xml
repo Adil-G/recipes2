@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="86728003-c023-403c-adf3-0c4091efe264" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers.js" afterPath="$PROJECT_DIR$/www/js/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/category.html" afterPath="$PROJECT_DIR$/www/templates/category.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/categoryNavDessert.html" afterPath="$PROJECT_DIR$/www/templates/categoryNavDessert.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/categoryNavMainDishes.html" afterPath="$PROJECT_DIR$/www/templates/categoryNavMainDishes.html" />
-    </list>
+    <list default="true" id="86728003-c023-403c-adf3-0c4091efe264" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -583,15 +577,15 @@
       <updated>1500604615843</updated>
       <workItem from="1500604617151" duration="9058000" />
       <workItem from="1500857201956" duration="3282000" />
-      <workItem from="1501444931771" duration="63002000" />
+      <workItem from="1501444931771" duration="63129000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75342000" />
+    <option name="totallyTimeSpent" value="75469000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1924" height="1056" extended-state="0" />
+    <frame x="-8" y="0" width="1924" height="1056" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
