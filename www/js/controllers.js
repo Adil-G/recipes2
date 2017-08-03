@@ -100,7 +100,7 @@ angular.module('starter.controllers', [])
       var results = "</br><h4>Results: </h4>";
       var recipeListObject = $('#recipesHistory');
       recipeListObject.empty();
-      for (var i = (recipeCardInfoList.length - 1); i >= 0 && ( Math.abs(((recipeCardInfoList.length - 1) - i)) < 100); i--) {
+      for (var i = (recipeCardInfoList.length - 1); i >= 0 && ( Math.abs(((recipeCardInfoList.length - 1) - i)) < 500); i--) {
         var recipeCardInfo = recipeCardInfoList[i];
         var titleX = recipeCardInfo.title;
         var imgX = recipeCardInfo.img;
@@ -221,6 +221,7 @@ angular.module('starter.controllers', [])
             // $scope.add(recipeInfo);
             // var recipeImage = 'http://media.forkthecookbook.com/banana-hemp-granola-a26ef_MAIN.jpg'
             //console.log("recipe image = "+recipeImage);
+          var stepCounter = 0;
             try {
               var instructionsChunks = jqueryHTML.find('#content ol');
               console.log("fsio0jf9w");
@@ -243,7 +244,7 @@ angular.module('starter.controllers', [])
                       continue;
 
                     var newStep = '<div class="cont_title_preparation">' +
-                      ' <p>STEP ' + (k + 1) + '</p>' +
+                      ' <p>STEP ' + (++stepCounter) + '</p>' +
                       '</div>' +
                       '<div class="cont_info_preparation">' +
                       '<p>' + part + '</p>' +
@@ -258,7 +259,7 @@ angular.module('starter.controllers', [])
 
 
                     var newStep = '<div class="cont_title_preparation">' +
-                      ' <p>STEP ' + (line + 1) + '</p>' +
+                      ' <p>STEP ' + (++stepCounter) + '</p>' +
                       '</div>' +
                       '<div class="cont_info_preparation">' +
                       '<p>' + step + '</p>' +
@@ -280,7 +281,7 @@ angular.module('starter.controllers', [])
 
 
                   var newStep = '<div class="cont_title_preparation">' +
-                    ' <p>STEP ' + (line + 1) + '</p>' +
+                    ' <p>STEP ' + (++stepCounter) + '</p>' +
                     '</div>' +
                     '<div class="cont_info_preparation">' +
                     '<p>' + step + '</p>' +
@@ -361,7 +362,7 @@ angular.module('starter.controllers', [])
             // $scope.add(recipeInfo);
             // var recipeImage = 'http://media.forkthecookbook.com/banana-hemp-granola-a26ef_MAIN.jpg'
             //console.log("recipe image = "+recipeImage);
-
+            var stepCounter = 0;
             var instructionsChunks = jqueryHTML.find('.recipe-instructions');
             var preparationsDiv = $($('#prep').find('.cont_text_det_preparation')[0]);
             preparationsDiv.empty();
@@ -373,7 +374,7 @@ angular.module('starter.controllers', [])
 
 
                 var newStep = '<div class="cont_title_preparation">' +
-                  ' <p>STEP ' + (line + 1) + '</p>' +
+                  ' <p>STEP ' + (++stepCounter) + '</p>' +
                   '</div>' +
                   '<div class="cont_info_preparation">' +
                   '<p>' + step + '</p>' +
