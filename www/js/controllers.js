@@ -209,24 +209,71 @@ angular.module('starter.controllers', [])
           //console.log("recipe image = "+recipeImage);
           try {
             var instructionsChunks = jqueryHTML.find('#content ol');
-            var preparationsDiv = $($('#prep').find('.cont_text_det_preparation')[0]);
-            preparationsDiv.empty();
-            var lines = $(instructionsChunks[0]).find('li');
-            for (var line = 0; line < lines.length; line++) {
-              console.log("line = " + line);
-              var step = $($(lines[line])[0]).text();
+            if(instructionsChunks.length==0)
+            {
+              instructionsChunks = jqueryHTML.find("#content p:contains('Directions')")[0];
+              var preparationsDiv = $($('#prep').find('.cont_text_det_preparation')[0]);
+              preparationsDiv.empty();
+              var lines = $(instructionsChunks);
+              console.log($(lines)[0]);
+              if(lines.length == 1) {
+                console.log("line = " + $($(lines[0])[0]).text());
+                var step = $($(lines[0])[0]).text().match(/[^\.!\?]+[\.!\?]+["']?|$/g);
+                console.log(step[5]);
+                for (var k = 0; k < step.length; k++) {
+                  console.log("line = hi");
+                 var part= step[k];
+                  if(part === '')
+                    continue;
+
+                  var newStep = '<div class="cont_title_preparation">' +
+                    ' <p>STEP ' + (k + 1) + '</p>' +
+                    '</div>' +
+                    '<div class="cont_info_preparation">' +
+                    '<p>' + part + '</p>' +
+                    '</div>';
+                  preparationsDiv.append(newStep);
+
+                }
+              }else{
+                for (var line = 0; line < lines.length; line++) {
+                  console.log("line = " + lines[line]);
+                  var step = $($(lines[line])[0]).text();
 
 
-              var newStep = '<div class="cont_title_preparation">' +
-                ' <p>STEP ' + (line + 1) + '</p>' +
-                '</div>' +
-                '<div class="cont_info_preparation">' +
-                '<p>' + step + '</p>' +
-                '</div>';
-              preparationsDiv.append(newStep);
+                  var newStep = '<div class="cont_title_preparation">' +
+                    ' <p>STEP ' + (line + 1) + '</p>' +
+                    '</div>' +
+                    '<div class="cont_info_preparation">' +
+                    '<p>' + step + '</p>' +
+                    '</div>';
+                  preparationsDiv.append(newStep);
 
+                }
+              }
+              console.log();
             }
-            console.log();
+            else {
+
+              var preparationsDiv = $($('#prep').find('.cont_text_det_preparation')[0]);
+              preparationsDiv.empty();
+              var lines = $(instructionsChunks[0]).find('li');
+              for (var line = 0; line < lines.length; line++) {
+                console.log("line = " + line);
+                var step = $($(lines[line])[0]).text();
+
+
+                var newStep = '<div class="cont_title_preparation">' +
+                  ' <p>STEP ' + (line + 1) + '</p>' +
+                  '</div>' +
+                  '<div class="cont_info_preparation">' +
+                  '<p>' + step + '</p>' +
+                  '</div>';
+                preparationsDiv.append(newStep);
+
+              }
+              console.log();
+            }
           }catch (err)
           {
 
@@ -239,11 +286,15 @@ angular.module('starter.controllers', [])
           $('#pane').empty().append(content);
 
 
-          var table = jqueryHTML.find("#content p:contains('Ingredients:')")[0];
+          var table = jqueryHTML.find("#content p:contains('Ingredients')")[jqueryHTML.find("#content p:contains('Ingredients')").length-1];
           $("#ingredient").empty();
           $("#ingredient").append("<link rel='stylesheet' href='http://static.forkthecookbook.com/css/forkthecookbook.min.css'>");
           $("#ingredient").append($(table).prop('outerHTML'));
-
+          var imgInIngredientsTab = $("#ingredient").find('img');
+          if(!(imgInIngredientsTab.attr("src") === undefined || imgInIngredientsTab.attr("src") === null) && imgInIngredientsTab.attr("src").includes("/wp-content/uploads/"))
+          {
+            imgInIngredientsTab.attr("src","http://opensourcecook.com"+imgInIngredientsTab.attr("src"));
+          }
 
 
           var text = "";
@@ -426,26 +477,42 @@ angular.module('starter.controllers', [])
           for(var res = 0; res < page.length; res++)
           {
             var recipeImage = $($($.parseHTML( page[res].data )).find( "#content img" )[0]).attr("src");
+            console.log("RECIPE IMAGE LINK:");
+            console.log(recipeImage);
             if(recipeImage === "http://opensourcecook.com/wp-content/themes/emerald-stretch/img/calendar.gif"
-            || recipeImage === undefined || recipeImage === null)
+            || recipeImage === undefined || recipeImage === null
+            )
             {
               recipeImage = '../img/cooker.png';
             }
+            if(recipeImage.includes("/wp-content/uploads/") && !recipeImage.includes("http://"))
+            {
+              recipeImage = "http://opensourcecook.com"+recipeImage;
+            }
             var recipeTitle = $($($.parseHTML( page[res].data )).find( "#content h1" )[0]).text();
             var recipeLink = page[res].config.url;
+            console.log("NOW:");
+            console.log(recipeImage);
             cardJSON.img.push(recipeImage);
             cardJSON.title.push(recipeTitle);
             cardJSON.link.push(recipeLink);
+
             cardJSON.length++;
           }
           for(var i = 0; i < cardJSON.length; i++)
           {
             var titleX = cardJSON.title[i];
             var imgX = cardJSON.img[i];
-            if(imgX === '')
+            /*if(imgX === '')
             {
               imgX = '../img/cooker.png';
             }
+            /*var image = new Image();
+            image.src = imgX;
+            if (image.width == 0) {
+              imgX = '../img/cooker.png';
+            }*/
+
             var linkX = cardJSON.link[i];
             //$scope.CurrentRecipe = linkX.substring(linkX.lastIndexOf("/")+1);
             var recipeInfo = {
@@ -465,7 +532,7 @@ angular.module('starter.controllers', [])
               }
             }
             var cardInfo = "<div class='w3-card-4' style='display: inline-block;margin-top: 20px;margin-bottom: 20px;margin-right: 30px; margin-left: 16px;width:20%'>"+
-              " <img src='"+imgX+"' alt='X' style='width:100%'>"+
+              " <img  onerror='this.src=\""+"../img/cooker.png"+"\";'src='"+imgX+"' alt='X' style='width:100%'>"+
               "<div class='w3-container w3-center'>"+
               "<p>"+titleX+"</p>"+
               "</div>"+
