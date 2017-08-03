@@ -93,6 +93,51 @@ angular.module('starter', ['ionic', 'ngStorage', 'starter.controllers', 'starter
           }
         }
       })
+      .state('app.navigation', {
+        url: '/navigation',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/categoryNav.html',
+            controller: 'NavCtrl'
+          }
+        }
+      })
+      .state('app.navigationD', {
+        url: '/navdessert',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/categoryNavDessert.html',
+            controller: 'NavCtrl'
+          }
+        }
+      })
+      .state('app.navigationM', {
+        url: '/navmaindishes',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/categoryNavMainDishes.html',
+            controller: 'NavCtrl'
+          }
+        }
+      })
+      .state('app.category', {
+        url: '/category/:cat',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/category.html',
+            controller: 'CatCtrl'
+          }
+        }
+      })
+      .state('app.category2', {
+        url: '/category/:cat/:cat2',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/category.html',
+            controller: 'CatCtrl2'
+          }
+        }
+      })
       .state('app.storage', {
         url: '/storage',
         views: {

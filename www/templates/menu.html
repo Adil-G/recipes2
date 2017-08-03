@@ -19,18 +19,21 @@
     <ion-content ng-controller="RecipeCtrl as md">
       <ion-list>
         <ion-item menu-close href="#/app/search">
-          Search
+          Search<br>
+          (Ingredients or Title)
         </ion-item>
         <ion-item menu-close href="#/app/random">
           Random
         </ion-item>
 
-
+        <ion-item menu-close href="#/app/navigation">
+          Categories
+        </ion-item>
         <ion-item menu-close href="#/app/recipe/{{CurrentRecipe}}">
-          Recipes
+          Current
         </ion-item>
         <ion-item menu-close  href="#/app/storage" ><!--->
-          Storage
+          History
         </ion-item>
 
       </ion-list>

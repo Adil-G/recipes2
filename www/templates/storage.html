@@ -1,5 +1,10 @@
 <ion-view  ng-app="starter" view-title="History">
   <ion-content>
+    <ion-refresher
+      pulling-text="Refresh"
+      on-refresh="history()">
+    </ion-refresher>
+
     <!DOCTYPE html>
     <html>
     <!--<h1>Random</h1>-->
