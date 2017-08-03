@@ -100,7 +100,7 @@ angular.module('starter.controllers', [])
       var imgX = recipeCardInfo.img;
       if(imgX === '')
       {
-        imgX = '../img/cooker.png';
+        imgX = 'img/cooker.png';
       }
       var linkX = recipeCardInfo.link;
       //$scope.CurrentRecipe = linkX.substring(linkX.lastIndexOf("/")+1);
@@ -299,14 +299,15 @@ angular.module('starter.controllers', [])
           });
           ingHolder.append($(table).prop('outerHTML'));
           $("#ingredient").append(ingHolder);
-          var imgInIngredientsTab = $("#ingredient").find('img');
-          if(!(imgInIngredientsTab.attr("src") === undefined || imgInIngredientsTab.attr("src") === null) && imgInIngredientsTab.attr("src").includes("/wp-content/uploads/"))
+          $("#ingredient").find('img').remove();
+          /*if(!(imgInIngredientsTab.attr("src") === undefined || imgInIngredientsTab.attr("src") === null) && imgInIngredientsTab.attr("src").includes("/wp-content/uploads/"))
           {
             imgInIngredientsTab.attr("src","http://opensourcecook.com"+imgInIngredientsTab.attr("src"));
           }
           $("#ingredient table").addClass('scrollable');
 
           var text = "";
+          */
         }
         // recipe-instructions
       );
@@ -502,7 +503,7 @@ angular.module('starter.controllers', [])
             || recipeImage === undefined || recipeImage === null
             )
             {
-              recipeImage = '../img/cooker.png';
+              recipeImage = 'img/cooker.png';
             }
             if(recipeImage.includes("/wp-content/uploads/") && !recipeImage.includes("http://"))
             {
@@ -524,12 +525,12 @@ angular.module('starter.controllers', [])
             var imgX = cardJSON.img[i];
             /*if(imgX === '')
             {
-              imgX = '../img/cooker.png';
+              imgX = 'img/cooker.png';
             }
             /*var image = new Image();
             image.src = imgX;
             if (image.width == 0) {
-              imgX = '../img/cooker.png';
+              imgX = 'img/cooker.png';
             }*/
 
             var linkX = cardJSON.link[i];
@@ -605,7 +606,7 @@ angular.module('starter.controllers', [])
           var imgX = recipeCardInfo.img[i];
           if(imgX === '')
           {
-            imgX = '../img/cooker.png';
+            imgX = 'img/cooker.png';
           }
           var linkX = recipeCardInfo.link[i];
           //$scope.CurrentRecipe = linkX.substring(linkX.lastIndexOf("/")+1);
@@ -752,7 +753,7 @@ angular.module('starter.controllers', [])
           var imgX = recipeCardInfo.img[i];
           if(imgX === '')
           {
-            imgX = '../img/cooker.png';
+            imgX = 'img/cooker.png';
           }
           var linkX = recipeCardInfo.link[i];
           //$scope.CurrentRecipe = linkX.substring(linkX.lastIndexOf("/")+1);
