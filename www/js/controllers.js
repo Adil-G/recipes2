@@ -120,7 +120,8 @@ angular.module('starter.controllers', [])
           $state.go("app.recipe",{});
         }
       }
-      var cardInfo = "<div class='w3-card-4' style='display: inline-block;margin-top: 20px;margin-bottom: 20px;margin-right: 30px; margin-left: 16px;width:20%'>"+
+      var px = '2%';
+      var cardInfo = "<div class='w3-card-4' style='display: inline-block;margin-top: "+px+";margin-bottom: "+px+";margin-right: "+px+"; margin-left: "+px+";width:45%'>"+
         " <img src='"+imgX+"' alt='Norway' style='width:100%'>"+
         "<div class='w3-container w3-center'>"+
         "<p>"+titleX+"</p>"+
@@ -288,14 +289,22 @@ angular.module('starter.controllers', [])
 
           var table = jqueryHTML.find("#content p:contains('Ingredients')")[jqueryHTML.find("#content p:contains('Ingredients')").length-1];
           $("#ingredient").empty();
-          $("#ingredient").append("<link rel='stylesheet' href='http://static.forkthecookbook.com/css/forkthecookbook.min.css'>");
-          $("#ingredient").append($(table).prop('outerHTML'));
+          var sco = "<style scoped>"+
+        "@import 'http://static.forkthecookbook.com/css/forkthecookbook.min.css';"+
+          "</style>";
+          //$("#ingredient").append("<link rel='stylesheet' href='http://static.forkthecookbook.com/css/forkthecookbook.min.css'>");
+          //$("#ingredient").append(sco);
+          var ingHolder = $('<div/>', {
+            class: 'scrollable'
+          });
+          ingHolder.append($(table).prop('outerHTML'));
+          $("#ingredient").append(ingHolder);
           var imgInIngredientsTab = $("#ingredient").find('img');
           if(!(imgInIngredientsTab.attr("src") === undefined || imgInIngredientsTab.attr("src") === null) && imgInIngredientsTab.attr("src").includes("/wp-content/uploads/"))
           {
             imgInIngredientsTab.attr("src","http://opensourcecook.com"+imgInIngredientsTab.attr("src"));
           }
-
+          $("#ingredient table").addClass('scrollable');
 
           var text = "";
         }
@@ -339,7 +348,7 @@ angular.module('starter.controllers', [])
 
           var instructionsChunks = jqueryHTML.find('.recipe-instructions');
           var preparationsDiv = $($('#prep').find('.cont_text_det_preparation')[0]);
-
+          preparationsDiv.empty();
           for (var i = 0; i < instructionsChunks.length; i++) {
             var lines = $(instructionsChunks[i]).find('li');
             for (var line = 0; line < lines.length; line++) {
@@ -370,8 +379,17 @@ angular.module('starter.controllers', [])
           var index = $(table).find('thead th').length - 1;
           //$(table).remove($(instructionsHeader));
           //console.log(instructionsHeader);
-          $("#ingredient").append("<link rel='stylesheet' href='http://static.forkthecookbook.com/css/forkthecookbook.min.css'>");
-          $("#ingredient").append($(table).prop('outerHTML'));
+          var sco = "<style scoped>"+
+            "@import 'http://static.forkthecookbook.com/css/forkthecookbook.min.css';"+
+            "</style>";
+          $("#ingredient").empty();
+          //$("#ingredient").append("<link rel='stylesheet' href='http://static.forkthecookbook.com/css/forkthecookbook.min.css'>");
+          //$("#ingredient").append(sco);
+          var ingHolder = $('<div/>', {
+            class: 'scrollable'
+          });
+          ingHolder.append($(table).prop('outerHTML'));
+          $("#ingredient").append(ingHolder);
           $("#ingredient .table thead th:eq(" + index + ")").remove();
           $("#ingredient .table .recipe-instructions").remove();
           //console.log( $(table).prop('outerHTML'));
@@ -398,6 +416,7 @@ angular.module('starter.controllers', [])
             } catch (err) {
             }
           }*/
+          //$("#ingredient table").addClass('scrollable');
           var text = "";
         }
         // recipe-instructions
@@ -531,8 +550,9 @@ angular.module('starter.controllers', [])
                 $state.go("app.recipe",{});
               }
             }
-            var cardInfo = "<div class='w3-card-4' style='display: inline-block;margin-top: 20px;margin-bottom: 20px;margin-right: 30px; margin-left: 16px;width:20%'>"+
-              " <img  onerror='this.src=\""+"../img/cooker.png"+"\";'src='"+imgX+"' alt='X' style='width:100%'>"+
+            var px = '2%';
+            var cardInfo = "<div class='w3-card-4' style='display: inline-block;margin-top: "+px+";margin-bottom: "+px+";margin-right: "+px+"; margin-left: "+px+";width:45%'>"+
+              " <img src='"+imgX+"' alt='Norway' style='width:100%'>"+
               "<div class='w3-container w3-center'>"+
               "<p>"+titleX+"</p>"+
               "</div>"+
@@ -605,7 +625,8 @@ angular.module('starter.controllers', [])
               $state.go("app.recipe",{});
             }
           }
-          var cardInfo = "<div class='w3-card-4' style='display: inline-block;margin-top: 20px;margin-bottom: 20px;margin-right: 30px; margin-left: 16px;width:20%'>"+
+          var px = '2%';
+          var cardInfo = "<div class='w3-card-4' style='display: inline-block;margin-top: "+px+";margin-bottom: "+px+";margin-right: "+px+"; margin-left: "+px+";width:45%'>"+
             " <img src='"+imgX+"' alt='Norway' style='width:100%'>"+
             "<div class='w3-container w3-center'>"+
             "<p>"+titleX+"</p>"+
@@ -750,8 +771,8 @@ angular.module('starter.controllers', [])
               console.log(JSON.stringify(singleRecipeJSON));
               $state.go("app.recipe",{});
             }
-          }
-          var cardInfo = "<div class='w3-card-4' style='display: inline-block;margin-top: 20px;margin-bottom: 20px;margin-right: 30px; margin-left: 16px;width:20%'>"+
+          }var px = '2%';
+          var cardInfo = "<div class='w3-card-4' style='display: inline-block;margin-top: "+px+";margin-bottom: "+px+";margin-right: "+px+"; margin-left: "+px+";width:45%'>"+
             " <img src='"+imgX+"' alt='Norway' style='width:100%'>"+
             "<div class='w3-container w3-center'>"+
             "<p>"+titleX+"</p>"+
