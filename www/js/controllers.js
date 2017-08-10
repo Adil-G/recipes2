@@ -83,7 +83,7 @@ angular.module('starter.controllers', [])
       function _waitForAnalytics(){
         if(typeof window.analytics !== 'undefined'){
           console.log("ANLYTICS RUNNING");
-          console.log(analytics);
+
           // turn on debug mode
           // https://github.com/danwilson/google-analytics-plugin#javascript-usage
           window.analytics.debugMode();
@@ -109,7 +109,7 @@ angular.module('starter.controllers', [])
           // set custom dimensions
           // https://developers.google.com/analytics/devguides/platform/customdimsmets
 
-          window.analytics.addCustomDimension('dimension1', 1);
+
 
           // track event
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
@@ -134,7 +134,7 @@ angular.module('starter.controllers', [])
           window.analytics.setAllowIDFACollection(true);
         }
         else{
-          console.log("failed");
+
           setTimeout(function(){
             _waitForAnalytics();
           },250);
@@ -218,7 +218,7 @@ angular.module('starter.controllers', [])
       function _waitForAnalytics(){
         if(typeof window.analytics !== 'undefined'){
           console.log("ANLYTICS RUNNING");
-          console.log(analytics);
+
           // turn on debug mode
           // https://github.com/danwilson/google-analytics-plugin#javascript-usage
           window.analytics.debugMode();
@@ -244,7 +244,7 @@ angular.module('starter.controllers', [])
           // set custom dimensions
           // https://developers.google.com/analytics/devguides/platform/customdimsmets
 
-          window.analytics.addCustomDimension('dimension1', 1);
+
 
           // track event
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
@@ -269,7 +269,7 @@ angular.module('starter.controllers', [])
           window.analytics.setAllowIDFACollection(true);
         }
         else{
-          console.log("failed");
+
           setTimeout(function(){
             _waitForAnalytics();
           },250);
@@ -530,7 +530,7 @@ angular.module('starter.controllers', [])
       function _waitForAnalytics(){
         if(typeof window.analytics !== 'undefined'){
           console.log("ANLYTICS RUNNING");
-          console.log(analytics);
+          //
           // turn on debug mode
           // https://github.com/danwilson/google-analytics-plugin#javascript-usage
           window.analytics.debugMode();
@@ -556,7 +556,7 @@ angular.module('starter.controllers', [])
           // set custom dimensions
           // https://developers.google.com/analytics/devguides/platform/customdimsmets
 
-          window.analytics.addCustomDimension('dimension1', 1);
+
 
           // track event
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
@@ -581,7 +581,7 @@ angular.module('starter.controllers', [])
           window.analytics.setAllowIDFACollection(true);
         }
         else{
-          console.log("failed");
+
           setTimeout(function(){
             _waitForAnalytics();
           },250);
@@ -810,7 +810,7 @@ angular.module('starter.controllers', [])
       function _waitForAnalytics(){
         if(typeof window.analytics !== 'undefined'){
           console.log("ANLYTICS RUNNING");
-          console.log(analytics);
+
           // turn on debug mode
           // https://github.com/danwilson/google-analytics-plugin#javascript-usage
           window.analytics.debugMode();
@@ -836,7 +836,7 @@ angular.module('starter.controllers', [])
           // set custom dimensions
           // https://developers.google.com/analytics/devguides/platform/customdimsmets
 
-          window.analytics.addCustomDimension('dimension1', 1);
+
 
           // track event
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
@@ -861,7 +861,7 @@ angular.module('starter.controllers', [])
           window.analytics.setAllowIDFACollection(true);
         }
         else{
-          console.log("failed");
+
           setTimeout(function(){
             _waitForAnalytics();
           },250);
@@ -1070,7 +1070,7 @@ angular.module('starter.controllers', [])
       function _waitForAnalytics(){
         if(typeof window.analytics !== 'undefined'){
           console.log("ANLYTICS RUNNING");
-          console.log(analytics);
+
           // turn on debug mode
           // https://github.com/danwilson/google-analytics-plugin#javascript-usage
           window.analytics.debugMode();
@@ -1096,7 +1096,7 @@ angular.module('starter.controllers', [])
           // set custom dimensions
           // https://developers.google.com/analytics/devguides/platform/customdimsmets
 
-          window.analytics.addCustomDimension('dimension1', 1);
+
 
           // track event
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
@@ -1121,7 +1121,7 @@ angular.module('starter.controllers', [])
           window.analytics.setAllowIDFACollection(true);
         }
         else{
-          console.log("failed");
+
           setTimeout(function(){
             _waitForAnalytics();
           },250);
@@ -1331,7 +1331,7 @@ angular.module('starter.controllers', [])
       function _waitForAnalytics(){
         if(typeof window.analytics !== 'undefined'){
           console.log("ANLYTICS RUNNING");
-          console.log(analytics);
+
           // turn on debug mode
           // https://github.com/danwilson/google-analytics-plugin#javascript-usage
           window.analytics.debugMode();
@@ -1357,7 +1357,7 @@ angular.module('starter.controllers', [])
           // set custom dimensions
           // https://developers.google.com/analytics/devguides/platform/customdimsmets
 
-          window.analytics.addCustomDimension('dimension1', 1);
+
 
           // track event
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
@@ -1382,7 +1382,7 @@ angular.module('starter.controllers', [])
           window.analytics.setAllowIDFACollection(true);
         }
         else{
-          console.log("failed");
+
           setTimeout(function(){
             _waitForAnalytics();
           },250);
@@ -1611,7 +1611,7 @@ angular.module('starter.controllers', [])
         function _waitForAnalytics(){
           if(typeof window.analytics !== 'undefined'){
             console.log("ANLYTICS RUNNING");
-            console.log(analytics);
+
             // turn on debug mode
             // https://github.com/danwilson/google-analytics-plugin#javascript-usage
             window.analytics.debugMode();
@@ -1637,7 +1637,7 @@ angular.module('starter.controllers', [])
             // set custom dimensions
             // https://developers.google.com/analytics/devguides/platform/customdimsmets
 
-            window.analytics.addCustomDimension('dimension1', 1);
+
 
             // track event
             // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
@@ -1662,7 +1662,7 @@ angular.module('starter.controllers', [])
             window.analytics.setAllowIDFACollection(true);
           }
           else{
-            console.log("failed");
+
             setTimeout(function(){
               _waitForAnalytics();
             },250);
