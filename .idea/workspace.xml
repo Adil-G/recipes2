@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86728003-c023-403c-adf3-0c4091efe264" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/npm-debug.log" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers.js" afterPath="$PROJECT_DIR$/www/js/controllers.js" />
@@ -24,26 +26,88 @@
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="611" column="6" lean-forward="true" selection-start-line="611" selection-start-column="6" selection-end-line="611" selection-end-column="6" />
+            <state relative-caret-position="178">
+              <caret line="1330" column="9" lean-forward="true" selection-start-line="1330" selection-start-column="9" selection-end-line="1330" selection-end-column="9" />
               <folding>
-                <marker date="1502365023024" expanded="true" signature="3796:3926" ph="..." />
-                <marker date="1502365023024" expanded="true" signature="3988:3998" ph="..." />
-                <marker date="1502365023024" expanded="true" signature="18012:18126" ph="..." />
-                <marker date="1502365023024" expanded="true" signature="18187:18197" ph="..." />
-                <marker date="1502365023024" expanded="true" signature="20293:20407" ph="..." />
-                <marker date="1502365023024" expanded="true" signature="20466:20476" ph="..." />
-                <marker date="1502365023024" expanded="true" signature="26544:26674" ph="..." />
-                <marker date="1502365023024" expanded="true" signature="26738:26748" ph="..." />
-                <marker date="1502365023024" expanded="true" signature="32917:33047" ph="..." />
-                <marker date="1502365023024" expanded="true" signature="33111:33121" ph="..." />
-                <marker date="1502365023024" expanded="true" signature="37962:38076" ph="..." />
-                <marker date="1502365023024" expanded="true" signature="38137:38147" ph="..." />
-                <marker date="1502365023024" expanded="true" signature="40243:40357" ph="..." />
-                <marker date="1502365023024" expanded="true" signature="40416:40426" ph="..." />
-                <marker date="1502365023024" expanded="true" signature="44047:44161" ph="..." />
-                <marker date="1502365023024" expanded="true" signature="44220:44230" ph="..." />
+                <marker date="1502376621676" expanded="true" signature="6239:6369" ph="..." />
+                <marker date="1502376621676" expanded="true" signature="6431:6441" ph="..." />
+                <marker date="1502376621676" expanded="true" signature="25405:25519" ph="..." />
+                <marker date="1502376621676" expanded="true" signature="25580:25590" ph="..." />
+                <marker date="1502376621676" expanded="true" signature="27686:27800" ph="..." />
+                <marker date="1502376621676" expanded="true" signature="27859:27869" ph="..." />
+                <marker date="1502376621676" expanded="true" signature="36466:36596" ph="..." />
+                <marker date="1502376621676" expanded="true" signature="36660:36670" ph="..." />
+                <marker date="1502376621676" expanded="true" signature="45314:45444" ph="..." />
+                <marker date="1502376621676" expanded="true" signature="45508:45518" ph="..." />
+                <marker date="1502376621676" expanded="true" signature="52837:52951" ph="..." />
+                <marker date="1502376621676" expanded="true" signature="53012:53022" ph="..." />
+                <marker date="1502376621676" expanded="true" signature="55118:55232" ph="..." />
+                <marker date="1502376621676" expanded="true" signature="55291:55301" ph="..." />
+                <marker date="1502376621676" expanded="true" signature="61493:61607" ph="..." />
+                <marker date="1502376621676" expanded="true" signature="61666:61676" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoogleAnalyticsProxy.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/windows/GoogleAnalyticsProxy.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="171" column="14" lean-forward="false" selection-start-line="171" selection-start-column="14" selection-end-line="171" selection-end-column="14" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UniversalAnalyticsProxy.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/browser/UniversalAnalyticsProxy.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="165" column="13" lean-forward="false" selection-start-line="165" selection-start-column="10" selection-end-line="165" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhoneHelpers.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/wp8/PhoneHelpers.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="analytics.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/www/analytics.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="65" column="64" lean-forward="false" selection-start-line="65" selection-start-column="62" selection-end-line="65" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="plugin.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/plugin.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="15" lean-forward="false" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -51,8 +115,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="547">
-              <caret line="39" column="54" lean-forward="false" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
+            <state relative-caret-position="561">
+              <caret line="42" column="75" lean-forward="true" selection-start-line="42" selection-start-column="75" selection-end-line="42" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -68,99 +132,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="categoryNavDessert.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/categoryNavDessert.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="48" lean-forward="true" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="categoryNavMainDishes.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/categoryNavMainDishes.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="categoryNav.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/categoryNav.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="75" column="37" lean-forward="false" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#2;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#4;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#4;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#5;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#5;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#6;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#6;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#7;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#7;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#8;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#8;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#9;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#9;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#10;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#10;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#11;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#11;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="category.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/category.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="storage.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/storage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="32" lean-forward="true" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="47" />
+            <state relative-caret-position="382">
+              <caret line="98" column="35" lean-forward="false" selection-start-line="98" selection-start-column="35" selection-end-line="98" selection-end-column="35" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="recipe.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/recipe.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="554" column="92" lean-forward="false" selection-start-line="554" selection-start-column="89" selection-end-line="554" selection-end-column="92" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -177,36 +154,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>CatCtrl2</find>
-      <find>CatCtrl</find>
-      <find>outerHTML</find>
-      <find>fsio0jf9w</find>
-      <find>&lt; 100</find>
-      <find>recipesRand</find>
-      <find>STEP</find>
-      <find>opens</find>
-      <find>opensourcecookbook</find>
-      <find>opensourcecook</find>
-      <find>opensourcecook.com</find>
-      <find>50</find>
-      <find>preparation&quot;</find>
-      <find>appetiz</find>
-      <find>wild-gam</find>
-      <find>bread</find>
-      <find>titlemap</find>
       <find>wile</find>
       <find>function($scope, $statePara</find>
       <find>scope.search =</find>
       <find>Ctrl</find>
       <find>img/cooker.png</find>
       <find>wild</find>
-      <find>$cordovaGoogleAnalytics</find>
       <find>Analytics</find>
       <find>$scope.Analytics</find>
       <find>$scope.Analytics =</find>
       <find>console.log</find>
       <find>.run</find>
       <find>$scope.Analytics = fun</find>
+      <find>Analytics =</find>
+      <find>analyt</find>
+      <find>AnalyticsCtrl</find>
+      <find>access</find>
+      <find>$cordovaGoogleAnalytics</find>
+      <find>cordova</find>
+      <find>ga</find>
+      <find>ga.</find>
+      <find>ga(</find>
+      <find>analytics</find>
+      <find>$ionicAnalytics</find>
+      <find>$scope.Analytics = functi</find>
+      <find>Random</find>
+      <find>random</find>
+      <find>$scope.Analytics = function</find>
+      <find>$scope.userID = '_' + Math.random().toString(36).substr(2, 9);</find>
+      <find>'USER_ID'</find>
+      <find>$scope.userID</find>
     </findStrings>
     <replaceStrings>
       <replace>2%</replace>
@@ -214,6 +191,8 @@
       <replace>'/app/category/appetizer'</replace>
       <replace>img/categories/.png</replace>
       <replace>analytics</replace>
+      <replace>window.analytics</replace>
+      <replace>$scope.userID</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -235,6 +214,7 @@
         <option value="$PROJECT_DIR$/www/templates/categoryNav.html" />
         <option value="$PROJECT_DIR$/www/templates/categoryNavMainDishes.html" />
         <option value="$PROJECT_DIR$/www/templates/categoryNavDessert.html" />
+        <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/js/app.js" />
         <option value="$PROJECT_DIR$/www/js/controllers.js" />
@@ -425,6 +405,72 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recipes2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recipes2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cordova-plugin-google-analytics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp8" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recipes2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recipes2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cordova-plugin-google-analytics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="windows" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recipes2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recipes2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cordova-plugin-google-analytics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="browser" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -548,19 +594,19 @@
       <workItem from="1500604617151" duration="9058000" />
       <workItem from="1500857201956" duration="3282000" />
       <workItem from="1501444931771" duration="66872000" />
-      <workItem from="1502352187489" duration="10233000" />
+      <workItem from="1502352187489" duration="16566000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89445000" />
+    <option name="totallyTimeSpent" value="95778000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16979167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -589,96 +635,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1502365023024" expanded="true" signature="3796:3926" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="3988:3998" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="18012:18126" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="18187:18197" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="20293:20407" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="20466:20476" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="26544:26674" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="26738:26748" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="32917:33047" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="33111:33121" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="37962:38076" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="38137:38147" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="40243:40357" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="40416:40426" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="44047:44161" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="44220:44230" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/categoryNavDessert.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="47" lean-forward="false" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/categoryNavMainDishes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" column="60" lean-forward="false" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/categoryNav.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1258">
-          <caret line="74" column="43" lean-forward="false" selection-start-line="74" selection-start-column="39" selection-end-line="74" selection-end-column="43" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#2;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#4;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#5;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#5;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#6;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#6;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#7;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#7;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#8;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#8;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#9;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#9;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#10;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#10;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#11;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#11;n#div#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/category.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="57" lean-forward="false" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/storage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/random.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -736,22 +692,22 @@
         <state relative-caret-position="2329">
           <caret line="137" column="26" lean-forward="true" selection-start-line="137" selection-start-column="26" selection-end-line="137" selection-end-column="26" />
           <folding>
-            <marker date="1502365023024" expanded="true" signature="3796:3926" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="3988:3998" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="18012:18126" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="18187:18197" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="20293:20407" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="20466:20476" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="26544:26674" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="26738:26748" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="32917:33047" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="33111:33121" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="37962:38076" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="38137:38147" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="40243:40357" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="40416:40426" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="44047:44161" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="44220:44230" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="6239:6369" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="6431:6441" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="25405:25519" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="25580:25590" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="27686:27800" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="27859:27869" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="36466:36596" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="36660:36670" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="45314:45444" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="45508:45518" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="52837:52951" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="53012:53022" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="55118:55232" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="55291:55301" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="61493:61607" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="61666:61676" ph="..." />
           </folding>
         </state>
       </provider>
@@ -769,7 +725,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -845,22 +801,22 @@
         <state relative-caret-position="2414">
           <caret line="142" column="17" lean-forward="false" selection-start-line="142" selection-start-column="17" selection-end-line="142" selection-end-column="17" />
           <folding>
-            <marker date="1502365023024" expanded="true" signature="3796:3926" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="3988:3998" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="18012:18126" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="18187:18197" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="20293:20407" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="20466:20476" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="26544:26674" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="26738:26748" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="32917:33047" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="33111:33121" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="37962:38076" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="38137:38147" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="40243:40357" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="40416:40426" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="44047:44161" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="44220:44230" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="6239:6369" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="6431:6441" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="25405:25519" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="25580:25590" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="27686:27800" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="27859:27869" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="36466:36596" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="36660:36670" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="45314:45444" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="45508:45518" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="52837:52951" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="53012:53022" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="55118:55232" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="55291:55301" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="61493:61607" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="61666:61676" ph="..." />
           </folding>
         </state>
       </provider>
@@ -886,7 +842,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -985,7 +941,7 @@
         <state relative-caret-position="286">
           <caret line="554" column="92" lean-forward="false" selection-start-line="554" selection-start-column="89" selection-end-line="554" selection-end-column="92" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -993,7 +949,7 @@
     <entry file="file://$PROJECT_DIR$/www/templates/categoryNavMainDishes.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -1001,7 +957,7 @@
     <entry file="file://$PROJECT_DIR$/www/templates/categoryNavDessert.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="48" lean-forward="true" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
+          <caret line="6" column="48" lean-forward="false" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -1055,43 +1011,103 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/lib/ngCordova/dist/ng-cordova.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/www/analytics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="65" column="64" lean-forward="false" selection-start-line="65" selection-start-column="62" selection-end-line="65" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/plugin.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="15" lean-forward="false" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/wp8/PhoneHelpers.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/windows/GoogleAnalyticsProxy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="171" column="14" lean-forward="false" selection-start-line="171" selection-start-column="14" selection-end-line="171" selection-end-column="14" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/browser/UniversalAnalyticsProxy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="165" column="13" lean-forward="false" selection-start-line="165" selection-start-column="10" selection-end-line="165" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="39" column="54" lean-forward="false" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
+        <state relative-caret-position="561">
+          <caret line="42" column="75" lean-forward="true" selection-start-line="42" selection-start-column="75" selection-end-line="42" selection-end-column="75" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="32" lean-forward="true" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="47" />
+        <state relative-caret-position="382">
+          <caret line="98" column="35" lean-forward="false" selection-start-line="98" selection-start-column="35" selection-end-line="98" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="611" column="6" lean-forward="true" selection-start-line="611" selection-start-column="6" selection-end-line="611" selection-end-column="6" />
+        <state relative-caret-position="178">
+          <caret line="1330" column="9" lean-forward="true" selection-start-line="1330" selection-start-column="9" selection-end-line="1330" selection-end-column="9" />
           <folding>
-            <marker date="1502365023024" expanded="true" signature="3796:3926" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="3988:3998" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="18012:18126" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="18187:18197" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="20293:20407" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="20466:20476" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="26544:26674" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="26738:26748" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="32917:33047" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="33111:33121" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="37962:38076" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="38137:38147" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="40243:40357" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="40416:40426" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="44047:44161" ph="..." />
-            <marker date="1502365023024" expanded="true" signature="44220:44230" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="6239:6369" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="6431:6441" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="25405:25519" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="25580:25590" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="27686:27800" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="27859:27869" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="36466:36596" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="36660:36670" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="45314:45444" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="45508:45518" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="52837:52951" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="53012:53022" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="55118:55232" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="55291:55301" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="61493:61607" ph="..." />
+            <marker date="1502376621676" expanded="true" signature="61666:61676" ph="..." />
           </folding>
         </state>
       </provider>

@@ -39,7 +39,12 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.11/angular-route.js"></script>
     <script src="lib/ngstorage/ngStorage.js"></script>
     <! — cordova script (this will be a 404 during development) →
-    <script src=”cordova.js”></script>
+    <!-- ngCordova -->
+    <!-- IMPORTANT : SHOULD be after ionic bundle and before cordova.js -->
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <script src="cordova.js"></script>
+
+
 
 
     <!-- your app's js -->
