@@ -4,15 +4,12 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ngStorage', 'starter.controllers', 'starter.main','ngRoute','ui.router'])
+angular.module('starter', ['ionic', 'ngStorage', 'starter.controllers', 'starter.main','ngRoute','ui.router', 'ionic.service.analytics', 'ionic.service.core'])
 
-  .run(function($ionicPlatform) {
+  .run(function($ionicPlatform, $ionicAnalytics) {
     $ionicPlatform.ready(function() {
-      if(typeof analytics !== 'undefined') {
-        analytics.startTrackerWithId("UA-XXXXXXXX-XX");
-      } else {
-        console.log("Google Analytics Unavailable");
-      }
+
+      $ionicAnalytics.register();
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
       if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -26,8 +23,6 @@ angular.module('starter', ['ionic', 'ngStorage', 'starter.controllers', 'starter
       }
     });
   })
-  // create a new factory
-
 
   .config(function($routeProvider) {
     $routeProvider.when('/storage', { templateUrl: "templates/storage.html", controller: "MainCtrl" })

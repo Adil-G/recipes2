@@ -77,59 +77,7 @@ angular.module('starter.controllers', [])
   .controller( "MainCtrl", function ($scope, StorageService, $state,$ionicLoading) {
     $scope.Analytics = function(ScreenName)
     {
-      if(typeof analytics !== 'undefined') {
-        // turn on debug mode
-        // https://github.com/danwilson/google-analytics-plugin#javascript-usage
-        analytics.debugMode();
 
-        // start tracker
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/
-
-        analytics.startTrackerWithId('UA-000000-01');
-
-        // set user id
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
-
-        analytics.setUserId($scope.userID);
-
-        // track a view
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
-        // Hint: Currently no support for appName, appId, appVersion, appInstallerId
-        //       If you need support for it, please create an issue on github:
-        //       https://github.com/driftyco/ng-cordova/issues
-
-        analytics.trackView(ScreenName);
-
-        // set custom dimensions
-        // https://developers.google.com/analytics/devguides/platform/customdimsmets
-
-        analytics.addCustomDimension('dimension1', 'Level 1');
-
-        // track event
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
-
-        analytics.trackEvent('Videos', 'Video Load Time', 'Gone With the Wind', 100);
-
-        // add transaction
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
-
-        analytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
-
-        // add transaction item
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
-
-        analytics.addTransactionItem(
-          '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
-        );
-
-        // allow IDFA collection to enable demographics and interest reports
-        // https://developers.google.com/analytics/devguides/collection/ios/v3/optional-features#idfa
-
-        analytics.setAllowIDFACollection(true);
-
-      }else {
-        console.log("Google Analytics Unavailable");
-      }
 
     };
     $scope.Analytics("History");
@@ -202,59 +150,7 @@ angular.module('starter.controllers', [])
   .controller('RecipeCtrl', function($scope, $stateParams, $http, $q, StorageService,$ionicLoading) {
     $scope.Analytics = function(ScreenName)
     {
-      if(typeof analytics !== 'undefined') {
-        // turn on debug mode
-        // https://github.com/danwilson/google-analytics-plugin#javascript-usage
-        analytics.debugMode();
 
-        // start tracker
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/
-
-        analytics.startTrackerWithId('UA-000000-01');
-
-        // set user id
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
-
-        analytics.setUserId($scope.userID);
-
-        // track a view
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
-        // Hint: Currently no support for appName, appId, appVersion, appInstallerId
-        //       If you need support for it, please create an issue on github:
-        //       https://github.com/driftyco/ng-cordova/issues
-
-        analytics.trackView(ScreenName);
-
-        // set custom dimensions
-        // https://developers.google.com/analytics/devguides/platform/customdimsmets
-
-        analytics.addCustomDimension('dimension1', 'Level 1');
-
-        // track event
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
-
-        analytics.trackEvent('Videos', 'Video Load Time', 'Gone With the Wind', 100);
-
-        // add transaction
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
-
-        analytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
-
-        // add transaction item
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
-
-        analytics.addTransactionItem(
-          '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
-        );
-
-        // allow IDFA collection to enable demographics and interest reports
-        // https://developers.google.com/analytics/devguides/collection/ios/v3/optional-features#idfa
-
-        analytics.setAllowIDFACollection(true);
-
-      }else {
-        console.log("Google Analytics Unavailable");
-      }
 
     };
     $scope.GetRecipe = function () {
@@ -505,59 +401,7 @@ angular.module('starter.controllers', [])
       "http://forkthecookbook.com/search-recipes";
     $scope.Analytics = function(ScreenName)
     {
-      if(typeof analytics !== 'undefined') {
-        // turn on debug mode
-        // https://github.com/danwilson/google-analytics-plugin#javascript-usage
-        analytics.debugMode();
 
-        // start tracker
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/
-
-        analytics.startTrackerWithId('UA-000000-01');
-
-        // set user id
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
-
-        analytics.setUserId($scope.userID);
-
-        // track a view
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
-        // Hint: Currently no support for appName, appId, appVersion, appInstallerId
-        //       If you need support for it, please create an issue on github:
-        //       https://github.com/driftyco/ng-cordova/issues
-
-        analytics.trackView(ScreenName);
-
-        // set custom dimensions
-        // https://developers.google.com/analytics/devguides/platform/customdimsmets
-
-        analytics.addCustomDimension('dimension1', 'Level 1');
-
-        // track event
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
-
-        analytics.trackEvent('Videos', 'Video Load Time', 'Gone With the Wind', 100);
-
-        // add transaction
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
-
-        analytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
-
-        // add transaction item
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
-
-        analytics.addTransactionItem(
-          '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
-        );
-
-        // allow IDFA collection to enable demographics and interest reports
-        // https://developers.google.com/analytics/devguides/collection/ios/v3/optional-features#idfa
-
-        analytics.setAllowIDFACollection(true);
-
-      }else {
-        console.log("Google Analytics Unavailable");
-      }
 
     };
     $scope.Search = function (query) {
@@ -770,59 +614,7 @@ angular.module('starter.controllers', [])
   .controller('CatCtrl2', function($scope, $stateParams, $http, $q,  $state, StorageService, $ionicLoading) {
     $scope.Analytics = function(ScreenName)
     {
-      if(typeof analytics !== 'undefined') {
-        // turn on debug mode
-        // https://github.com/danwilson/google-analytics-plugin#javascript-usage
-        analytics.debugMode();
 
-        // start tracker
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/
-
-        analytics.startTrackerWithId('UA-000000-01');
-
-        // set user id
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
-
-        analytics.setUserId($scope.userID);
-
-        // track a view
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
-        // Hint: Currently no support for appName, appId, appVersion, appInstallerId
-        //       If you need support for it, please create an issue on github:
-        //       https://github.com/driftyco/ng-cordova/issues
-
-        analytics.trackView(ScreenName);
-
-        // set custom dimensions
-        // https://developers.google.com/analytics/devguides/platform/customdimsmets
-
-        analytics.addCustomDimension('dimension1', 'Level 1');
-
-        // track event
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
-
-        analytics.trackEvent('Videos', 'Video Load Time', 'Gone With the Wind', 100);
-
-        // add transaction
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
-
-        analytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
-
-        // add transaction item
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
-
-        analytics.addTransactionItem(
-          '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
-        );
-
-        // allow IDFA collection to enable demographics and interest reports
-        // https://developers.google.com/analytics/devguides/collection/ios/v3/optional-features#idfa
-
-        analytics.setAllowIDFACollection(true);
-
-      }else {
-        console.log("Google Analytics Unavailable");
-      }
 
     };
     $scope.Analytics("Categories Second Level");
@@ -1019,59 +811,6 @@ angular.module('starter.controllers', [])
   .controller('CatCtrl', function($scope, $stateParams, $http, $q,  $state, StorageService,$ionicLoading) {
     $scope.Analytics = function(ScreenName)
     {
-      if(typeof analytics !== 'undefined') {
-        // turn on debug mode
-        // https://github.com/danwilson/google-analytics-plugin#javascript-usage
-        analytics.debugMode();
-
-        // start tracker
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/
-
-        analytics.startTrackerWithId('UA-000000-01');
-
-        // set user id
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
-
-        analytics.setUserId($scope.userID);
-
-        // track a view
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
-        // Hint: Currently no support for appName, appId, appVersion, appInstallerId
-        //       If you need support for it, please create an issue on github:
-        //       https://github.com/driftyco/ng-cordova/issues
-
-        analytics.trackView(ScreenName);
-
-        // set custom dimensions
-        // https://developers.google.com/analytics/devguides/platform/customdimsmets
-
-        analytics.addCustomDimension('dimension1', 'Level 1');
-
-        // track event
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
-
-        analytics.trackEvent('Videos', 'Video Load Time', 'Gone With the Wind', 100);
-
-        // add transaction
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
-
-        analytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
-
-        // add transaction item
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
-
-        analytics.addTransactionItem(
-          '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
-        );
-
-        // allow IDFA collection to enable demographics and interest reports
-        // https://developers.google.com/analytics/devguides/collection/ios/v3/optional-features#idfa
-
-        analytics.setAllowIDFACollection(true);
-
-      }else {
-        console.log("Google Analytics Unavailable");
-      }
 
     };
     $scope.Analytics("Categories Top Level");
@@ -1270,59 +1009,6 @@ angular.module('starter.controllers', [])
 
       $scope.Analytics = function(ScreenName)
     {
-      if(typeof analytics !== 'undefined') {
-        // turn on debug mode
-        // https://github.com/danwilson/google-analytics-plugin#javascript-usage
-        analytics.debugMode();
-
-        // start tracker
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/
-
-        analytics.startTrackerWithId('UA-000000-01');
-
-        // set user id
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
-
-        analytics.setUserId($scope.userID);
-
-        // track a view
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
-        // Hint: Currently no support for appName, appId, appVersion, appInstallerId
-        //       If you need support for it, please create an issue on github:
-        //       https://github.com/driftyco/ng-cordova/issues
-
-        analytics.trackView(ScreenName);
-
-        // set custom dimensions
-        // https://developers.google.com/analytics/devguides/platform/customdimsmets
-
-        analytics.addCustomDimension('dimension1', 'Level 1');
-
-        // track event
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
-
-        analytics.trackEvent('Videos', 'Video Load Time', 'Gone With the Wind', 100);
-
-        // add transaction
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
-
-        analytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
-
-        // add transaction item
-        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
-
-        analytics.addTransactionItem(
-          '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
-        );
-
-        // allow IDFA collection to enable demographics and interest reports
-        // https://developers.google.com/analytics/devguides/collection/ios/v3/optional-features#idfa
-
-        analytics.setAllowIDFACollection(true);
-
-      }else {
-        console.log("Google Analytics Unavailable");
-      }
 
     };
       $scope.CookBookURL =
@@ -1540,59 +1226,6 @@ angular.module('starter.controllers', [])
     };
       $scope.Analytics = function(ScreenName)
       {
-        if(typeof analytics !== 'undefined') {
-          // turn on debug mode
-          // https://github.com/danwilson/google-analytics-plugin#javascript-usage
-          analytics.debugMode();
-
-          // start tracker
-          // https://developers.google.com/analytics/devguides/collection/analyticsjs/
-
-          analytics.startTrackerWithId('UA-000000-01');
-
-          // set user id
-          // https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
-
-          analytics.setUserId($scope.userID);
-
-          // track a view
-          // https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
-          // Hint: Currently no support for appName, appId, appVersion, appInstallerId
-          //       If you need support for it, please create an issue on github:
-          //       https://github.com/driftyco/ng-cordova/issues
-
-          analytics.trackView(ScreenName);
-
-          // set custom dimensions
-          // https://developers.google.com/analytics/devguides/platform/customdimsmets
-
-          analytics.addCustomDimension('dimension1', 'Level 1');
-
-          // track event
-          // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
-
-          analytics.trackEvent('Videos', 'Video Load Time', 'Gone With the Wind', 100);
-
-          // add transaction
-          // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
-
-          analytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
-
-          // add transaction item
-          // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
-
-          analytics.addTransactionItem(
-            '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
-          );
-
-          // allow IDFA collection to enable demographics and interest reports
-          // https://developers.google.com/analytics/devguides/collection/ios/v3/optional-features#idfa
-
-          analytics.setAllowIDFACollection(true);
-
-        }else {
-          console.log("Google Analytics Unavailable");
-        }
 
       };
     $scope.randoSearch = function () {
