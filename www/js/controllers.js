@@ -31,7 +31,6 @@ angular.module('starter.controllers', [])
 
     // Perform the login action when the user submits the login form
     $scope.doLogin2 = function() {
-      console.log('Doing login', $scope.loginData);
 
       // Simulate a login delay. Remove this and replace with your login
       // code if using a login system
@@ -52,7 +51,7 @@ angular.module('starter.controllers', [])
     ];
   })
 
-  .controller('PlaylistCtrl', function($scope, $stateParams, $cordovaGoogleAnalytics) {
+  .controller('PlaylistCtrl', function($scope, $stateParams) {
 
   })
   .factory ("StorageService", function ($localStorage) {
@@ -76,6 +75,63 @@ angular.module('starter.controllers', [])
     };
   })
   .controller( "MainCtrl", function ($scope, StorageService, $state,$ionicLoading) {
+    $scope.Analytics = function(ScreenName)
+    {
+      if(typeof analytics !== 'undefined') {
+        // turn on debug mode
+        // https://github.com/danwilson/google-analytics-plugin#javascript-usage
+        analytics.debugMode();
+
+        // start tracker
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/
+
+        analytics.startTrackerWithId('UA-000000-01');
+
+        // set user id
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
+
+        analytics.setUserId($scope.userID);
+
+        // track a view
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
+        // Hint: Currently no support for appName, appId, appVersion, appInstallerId
+        //       If you need support for it, please create an issue on github:
+        //       https://github.com/driftyco/ng-cordova/issues
+
+        analytics.trackView(ScreenName);
+
+        // set custom dimensions
+        // https://developers.google.com/analytics/devguides/platform/customdimsmets
+
+        analytics.addCustomDimension('dimension1', 'Level 1');
+
+        // track event
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
+
+        analytics.trackEvent('Videos', 'Video Load Time', 'Gone With the Wind', 100);
+
+        // add transaction
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
+
+        analytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
+
+        // add transaction item
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
+
+        analytics.addTransactionItem(
+          '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
+        );
+
+        // allow IDFA collection to enable demographics and interest reports
+        // https://developers.google.com/analytics/devguides/collection/ios/v3/optional-features#idfa
+
+        analytics.setAllowIDFACollection(true);
+
+      }else {
+        console.log("Google Analytics Unavailable");
+      }
+
+    };
     $scope.Analytics("History");
     $scope.history = function() {
       $ionicLoading.show({
@@ -85,7 +141,6 @@ angular.module('starter.controllers', [])
         maxWidth: 200,
         showDelay: 0
       });
-      console.log("in history tab");
       $scope.things = StorageService.getAll();
       $scope.add = function (newThing) {
         StorageService.add(newThing);
@@ -97,7 +152,6 @@ angular.module('starter.controllers', [])
 
       }
       var recipeCardInfoList = StorageService.getAll();
-      console.log(recipeCardInfoList);
       var results = "</br><h4>Results: </h4>";
       var recipeListObject = $('#recipesHistory');
       recipeListObject.empty();
@@ -119,10 +173,8 @@ angular.module('starter.controllers', [])
 
         function goToRecipe(singleRecipeJSON) {
           return function () {
-            console.log('HEYO');
             //$scope.CurrentRecipeInfo = singleRecipeJSON;
             StorageService.add(singleRecipeJSON);
-            console.log(JSON.stringify(singleRecipeJSON));
             $state.go("app.recipe", {});
           }
         }
@@ -144,10 +196,67 @@ angular.module('starter.controllers', [])
     $scope.history();
 })
 
-  .controller('StorageService', function($scope, $stateParams, $cordovaGoogleAnalytics, $localStorage) {
+  .controller('StorageService', function($scope, $stateParams, $localStorage) {
 
   })
-  .controller('RecipeCtrl', function($scope, $stateParams, $cordovaGoogleAnalytics, $http, $q, StorageService,$ionicLoading) {
+  .controller('RecipeCtrl', function($scope, $stateParams, $http, $q, StorageService,$ionicLoading) {
+    $scope.Analytics = function(ScreenName)
+    {
+      if(typeof analytics !== 'undefined') {
+        // turn on debug mode
+        // https://github.com/danwilson/google-analytics-plugin#javascript-usage
+        analytics.debugMode();
+
+        // start tracker
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/
+
+        analytics.startTrackerWithId('UA-000000-01');
+
+        // set user id
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
+
+        analytics.setUserId($scope.userID);
+
+        // track a view
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
+        // Hint: Currently no support for appName, appId, appVersion, appInstallerId
+        //       If you need support for it, please create an issue on github:
+        //       https://github.com/driftyco/ng-cordova/issues
+
+        analytics.trackView(ScreenName);
+
+        // set custom dimensions
+        // https://developers.google.com/analytics/devguides/platform/customdimsmets
+
+        analytics.addCustomDimension('dimension1', 'Level 1');
+
+        // track event
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
+
+        analytics.trackEvent('Videos', 'Video Load Time', 'Gone With the Wind', 100);
+
+        // add transaction
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
+
+        analytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
+
+        // add transaction item
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
+
+        analytics.addTransactionItem(
+          '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
+        );
+
+        // allow IDFA collection to enable demographics and interest reports
+        // https://developers.google.com/analytics/devguides/collection/ios/v3/optional-features#idfa
+
+        analytics.setAllowIDFACollection(true);
+
+      }else {
+        console.log("Google Analytics Unavailable");
+      }
+
+    };
     $scope.GetRecipe = function () {
       $scope.Analytics("Recipe Page");
       $ionicLoading.show({
@@ -191,10 +300,8 @@ angular.module('starter.controllers', [])
       }
 
       if (fullLink.includes("http://opensourcecook.com")) {
-        console.log("entered recipe...");
 
 
-        //console.log($scope.CurrentRecipe);
         var arr = [];
         var headers = {
           'Access-Control-Allow-Origin': '*',
@@ -213,22 +320,13 @@ angular.module('starter.controllers', [])
         );
         $q.all(arr).then(function (result) {
 
-            console.log("Auth.signin.success!");
 
             //var html = $($.parseHTML( result[0].data )).find( "#recipeContainer" )[0];
 
             var jqueryHTML = $($.parseHTML(result[0].data));
-            //var recipeTitle = $($(jqueryHTML.find('.content-title h1')[0]).remove('small')).text();
-
-            // $scope.add(recipeInfo);
-            // var recipeImage = 'http://media.forkthecookbook.com/banana-hemp-granola-a26ef_MAIN.jpg'
-            //console.log("recipe image = "+recipeImage);
           var stepCounter = 0;
             try {
               var instructionsChunks = jqueryHTML.find('#content ol');
-              console.log("fsio0jf9w");
-              console.log(instructionsChunks[0]);
-              console.log($(instructionsChunks[0]).closest("#comment-area").length);
               if ($(instructionsChunks[0]).find("li").length == 0 || $(instructionsChunks[0]).closest("#comment-area").length) {
                 instructionsChunks = jqueryHTML.find("#content p:contains('Directions')")[0];
                 var preparationsDiv = $($('#prep').find('.cont_text_det_preparation')[0]);
@@ -236,11 +334,8 @@ angular.module('starter.controllers', [])
                 var lines = $(instructionsChunks);
 
                 if (lines.length == 1) {
-                  console.log("line = " + $($(lines[0])[0]).text());
                   var step = $($(lines[0])[0]).text().match(/[^\.!\?]+[\.!\?]+["']?|$/g);
-                  console.log(step[5]);
                   for (var k = 0; k < step.length; k++) {
-                    console.log("line = hi");
                     var part = step[k];
                     if (part === '')
                       continue;
@@ -256,7 +351,6 @@ angular.module('starter.controllers', [])
                   }
                 } else {
                   for (var line = 0; line < lines.length; line++) {
-                    console.log("line = " + lines[line]);
                     var step = $($(lines[line])[0]).text();
 
 
@@ -270,7 +364,6 @@ angular.module('starter.controllers', [])
 
                   }
                 }
-                console.log();
               }
               else {
 
@@ -278,7 +371,6 @@ angular.module('starter.controllers', [])
                 preparationsDiv.empty();
                 var lines = $(instructionsChunks[0]).find('li');
                 for (var line = 0; line < lines.length; line++) {
-                  console.log("line = " + line);
                   var step = $($(lines[line])[0]).text();
 
 
@@ -291,7 +383,6 @@ angular.module('starter.controllers', [])
                   preparationsDiv.append(newStep);
 
                 }
-                console.log();
               }
             } catch (err) {
 
@@ -332,10 +423,8 @@ angular.module('starter.controllers', [])
         );
       }
       else {
-        console.log("entered recipe...");
 
 
-        //console.log($scope.CurrentRecipe);
         var arr = [];
         var headers = {
           'Access-Control-Allow-Origin': '*',
@@ -354,16 +443,10 @@ angular.module('starter.controllers', [])
         );
         $q.all(arr).then(function (result) {
 
-            console.log("Auth.signin.success!");
 
             //var html = $($.parseHTML( result[0].data )).find( "#recipeContainer" )[0];
 
             var jqueryHTML = $($.parseHTML(result[0].data));
-            //var recipeTitle = $($(jqueryHTML.find('.content-title h1')[0]).remove('small')).text();
-
-            // $scope.add(recipeInfo);
-            // var recipeImage = 'http://media.forkthecookbook.com/banana-hemp-granola-a26ef_MAIN.jpg'
-            //console.log("recipe image = "+recipeImage);
             var stepCounter = 0;
             var instructionsChunks = jqueryHTML.find('.recipe-instructions');
             var preparationsDiv = $($('#prep').find('.cont_text_det_preparation')[0]);
@@ -371,7 +454,6 @@ angular.module('starter.controllers', [])
             for (var i = 0; i < instructionsChunks.length; i++) {
               var lines = $(instructionsChunks[i]).find('li');
               for (var line = 0; line < lines.length; line++) {
-                console.log("line = " + line);
                 var step = $($(lines[line])[0]).text();
 
 
@@ -384,7 +466,6 @@ angular.module('starter.controllers', [])
                 preparationsDiv.append(newStep);
 
               }
-              console.log();
             }
 
             $("#prep_tab").addClass('button-clicked');
@@ -396,8 +477,6 @@ angular.module('starter.controllers', [])
             $(table).remove('.recipe-instructions');
             //$(table).find('thead th').children().slice($(table).find('thead th').length -1).detach();;
             var index = $(table).find('thead th').length - 1;
-            //$(table).remove($(instructionsHeader));
-            //console.log(instructionsHeader);
             var sco = "<style scoped>" +
               "@import 'http://static.forkthecookbook.com/css/forkthecookbook.min.css';" +
               "</style>";
@@ -411,31 +490,7 @@ angular.module('starter.controllers', [])
             $("#ingredient").append(ingHolder);
             $("#ingredient .table thead th:eq(" + index + ")").remove();
             $("#ingredient .table .recipe-instructions").remove();
-            //console.log( $(table).prop('outerHTML'));
-            /*for (var i = 0; i < 3; i++) {
-             try {
-             var value = $(jqueryHTML.find('.span4 .table td')[i]).text();
-             console.log(value);
-             switch (i) {
-             case 0:
-             //serves
-             $('#serves').empty().append(value);
-             break;
-             case 1:
-             //time
-             $('#time').empty().append(value);
-             break;
-             case 2:
-             //diff
-             $('#diff').empty().append(value);
-             break;
-             default:
-             break;
-             }
-             } catch (err) {
-             }
-             }*/
-            //$("#ingredient table").addClass('scrollable');
+
             var text = "";
             $ionicLoading.hide();
           }
@@ -445,10 +500,66 @@ angular.module('starter.controllers', [])
     };
     $scope.GetRecipe();
   })
-  .controller('SearchCtrl', function($scope, $stateParams, $cordovaGoogleAnalytics, $http, $q, StorageService, $state, $ionicLoading) {
+  .controller('SearchCtrl', function($scope, $stateParams, $http, $q, StorageService, $state, $ionicLoading) {
     $scope.CookBookURL =
       "http://forkthecookbook.com/search-recipes";
+    $scope.Analytics = function(ScreenName)
+    {
+      if(typeof analytics !== 'undefined') {
+        // turn on debug mode
+        // https://github.com/danwilson/google-analytics-plugin#javascript-usage
+        analytics.debugMode();
 
+        // start tracker
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/
+
+        analytics.startTrackerWithId('UA-000000-01');
+
+        // set user id
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
+
+        analytics.setUserId($scope.userID);
+
+        // track a view
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
+        // Hint: Currently no support for appName, appId, appVersion, appInstallerId
+        //       If you need support for it, please create an issue on github:
+        //       https://github.com/driftyco/ng-cordova/issues
+
+        analytics.trackView(ScreenName);
+
+        // set custom dimensions
+        // https://developers.google.com/analytics/devguides/platform/customdimsmets
+
+        analytics.addCustomDimension('dimension1', 'Level 1');
+
+        // track event
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
+
+        analytics.trackEvent('Videos', 'Video Load Time', 'Gone With the Wind', 100);
+
+        // add transaction
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
+
+        analytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
+
+        // add transaction item
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
+
+        analytics.addTransactionItem(
+          '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
+        );
+
+        // allow IDFA collection to enable demographics and interest reports
+        // https://developers.google.com/analytics/devguides/collection/ios/v3/optional-features#idfa
+
+        analytics.setAllowIDFACollection(true);
+
+      }else {
+        console.log("Google Analytics Unavailable");
+      }
+
+    };
     $scope.Search = function (query) {
       $scope.Analytics("Search");
       $ionicLoading.show({
@@ -493,8 +604,6 @@ angular.module('starter.controllers', [])
         // ret[0] contains the response of the first call
         // ret[1] contains the second response
         // etc.
-        console.log("Auth.signin.success!");
-        //console.log(result[0].data);
         var html = $($.parseHTML( result[0].data )).find( "#recipeContainer" )[0];
         var htmlOpenSourceCookbook = $($.parseHTML( result[1].data ));
         var postList = htmlOpenSourceCookbook.find( "h1[id*='post']" );
@@ -503,9 +612,6 @@ angular.module('starter.controllers', [])
         for(var j = 0; j < postList.length;j++)
         {
           var posts = postList[j];
-          console.log("opensourcecookbook: "+posts);
-          console.log($(posts).text());
-          console.log($($(posts).find("a")[0]).attr("href"));
           listOfImages.push(
             $http({
               method: "GET",
@@ -526,8 +632,6 @@ angular.module('starter.controllers', [])
           for(var res = 0; res < page.length; res++)
           {
             var recipeImage = $($($.parseHTML( page[res].data )).find( "#content img" )[0]).attr("src");
-            console.log("RECIPE IMAGE LINK:");
-            console.log(recipeImage);
             if(recipeImage === "http://opensourcecook.com/wp-content/themes/emerald-stretch/img/calendar.gif"
               || recipeImage === undefined || recipeImage === null
             )
@@ -540,8 +644,6 @@ angular.module('starter.controllers', [])
             }
             var recipeTitle = $($($.parseHTML( page[res].data )).find( "#content h1" )[0]).text();
             var recipeLink = page[res].config.url;
-            console.log("NOW:");
-            console.log(recipeImage);
             cardJSON.img.push(recipeImage);
             cardJSON.title.push(recipeTitle);
             cardJSON.link.push(recipeLink);
@@ -573,10 +675,8 @@ angular.module('starter.controllers', [])
 
             function goToRecipe( singleRecipeJSON ){
               return function(){
-                console.log('HEYO');
                 //$scope.CurrentRecipeInfo = singleRecipeJSON;
                 StorageService.add(singleRecipeJSON);
-                console.log(JSON.stringify(singleRecipeJSON));
                 $state.go("app.recipe",{});
               }
             }
@@ -594,7 +694,6 @@ angular.module('starter.controllers', [])
           }
           $ionicLoading.hide();
         });
-        //console.log(html);
         var text = "";
         var allHtml = $(html).find('a');
         var recipeCardInfo = {
@@ -611,13 +710,9 @@ angular.module('starter.controllers', [])
             text += 'url = '+ link;
             text += $(allHtml[i]).html();
             var divRecipeBox = $(allHtml[i]).find('.recipe-box')[0];
-            console.log(divRecipeBox);
             var title = $(divRecipeBox).find(".recipe-title").text();
             var bg = $(divRecipeBox).css('background-image');
             bg = bg.replace('url(','').replace(')','').replace(/\"/gi, "");
-            console.log("title: "+title);
-            console.log("background-image: "+bg)
-            console.log('link: '+link);
             recipeCardInfo.link.push(link);
             recipeCardInfo.title.push(title);
             recipeCardInfo.img.push(bg);
@@ -626,7 +721,6 @@ angular.module('starter.controllers', [])
 
           }catch (err){}
         }
-        console.log(recipeCardInfo);
 
 
         for(var i = 0; i < recipeCardInfo.length; i++)
@@ -648,10 +742,8 @@ angular.module('starter.controllers', [])
 
           function goToRecipe( singleRecipeJSON ){
             return function(){
-              console.log('HEYO');
               //$scope.CurrentRecipeInfo = singleRecipeJSON;
               StorageService.add(singleRecipeJSON);
-              console.log(JSON.stringify(singleRecipeJSON));
               $state.go("app.recipe",{});
             }
           }
@@ -672,24 +764,67 @@ angular.module('starter.controllers', [])
          var svgTag = angular.element(text);
          angular.element(svgTag).appendTo(iElement[0]);*/
       });
-      /*var req = $scope.httpRequest("http://forkthecookbook.com/search-recipes?q=butter+chicken", "HEAD");  // In this example you don't want to GET the full page contents
-       alert(req.status == 200 ? "found!" : "failed");  // We didn't provided an async proc so this will be executed after request completion only
-       console.log(req);*/
-      /*
-       $http.get($scope.CookBookURL, {params: {"q": "butter+chicken"}, headers: headers})
-       .success(function (data) {
-       console.log(data);
-       return data;
-
-       })
-       .error(function (data) {
-       console.log(data);
-       return data;
-       });*/
 
     };
   })
-  .controller('CatCtrl2', function($scope, $stateParams, $cordovaGoogleAnalytics, $http, $q,  $state, StorageService, $ionicLoading) {
+  .controller('CatCtrl2', function($scope, $stateParams, $http, $q,  $state, StorageService, $ionicLoading) {
+    $scope.Analytics = function(ScreenName)
+    {
+      if(typeof analytics !== 'undefined') {
+        // turn on debug mode
+        // https://github.com/danwilson/google-analytics-plugin#javascript-usage
+        analytics.debugMode();
+
+        // start tracker
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/
+
+        analytics.startTrackerWithId('UA-000000-01');
+
+        // set user id
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
+
+        analytics.setUserId($scope.userID);
+
+        // track a view
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
+        // Hint: Currently no support for appName, appId, appVersion, appInstallerId
+        //       If you need support for it, please create an issue on github:
+        //       https://github.com/driftyco/ng-cordova/issues
+
+        analytics.trackView(ScreenName);
+
+        // set custom dimensions
+        // https://developers.google.com/analytics/devguides/platform/customdimsmets
+
+        analytics.addCustomDimension('dimension1', 'Level 1');
+
+        // track event
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
+
+        analytics.trackEvent('Videos', 'Video Load Time', 'Gone With the Wind', 100);
+
+        // add transaction
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
+
+        analytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
+
+        // add transaction item
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
+
+        analytics.addTransactionItem(
+          '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
+        );
+
+        // allow IDFA collection to enable demographics and interest reports
+        // https://developers.google.com/analytics/devguides/collection/ios/v3/optional-features#idfa
+
+        analytics.setAllowIDFACollection(true);
+
+      }else {
+        console.log("Google Analytics Unavailable");
+      }
+
+    };
     $scope.Analytics("Categories Second Level");
     var arr = [];
     var titleMap = {
@@ -787,17 +922,12 @@ angular.module('starter.controllers', [])
       // ret[0] contains the response of the first call
       // ret[1] contains the second response
       // etc.
-      console.log("Auth.signin.success!");
-      //console.log(result[0].data);
       var htmlOpenSourceCookbook = $($.parseHTML(result[0].data));
       var postList = htmlOpenSourceCookbook.find("h1[id*='post']");
       var listOfImages = [];
 
       for (var j = 0; j < postList.length; j++) {
         var posts = postList[j];
-        console.log("opensourcecookbook: " + posts);
-        console.log($(posts).text());
-        console.log($($(posts).find("a")[0]).attr("href"));
         listOfImages.push(
           $http({
             method: "GET",
@@ -817,8 +947,6 @@ angular.module('starter.controllers', [])
         };
         for (var res = 0; res < page.length; res++) {
           var recipeImage = $($($.parseHTML(page[res].data)).find("#content img")[0]).attr("src");
-          console.log("RECIPE IMAGE LINK:");
-          console.log(recipeImage);
           if (recipeImage === "http://opensourcecook.com/wp-content/themes/emerald-stretch/img/calendar.gif"
             || recipeImage === undefined || recipeImage === null
           ) {
@@ -829,8 +957,6 @@ angular.module('starter.controllers', [])
           }
           var recipeTitle = $($($.parseHTML(page[res].data)).find("#content h1")[0]).text();
           var recipeLink = page[res].config.url;
-          console.log("NOW:");
-          console.log(recipeImage);
           cardJSON.img.push(recipeImage);
           cardJSON.title.push(recipeTitle);
           cardJSON.link.push(recipeLink);
@@ -861,10 +987,7 @@ angular.module('starter.controllers', [])
 
           function goToRecipe(singleRecipeJSON) {
             return function () {
-              console.log('HEYO');
-              //$scope.CurrentRecipeInfo = singleRecipeJSON;
               StorageService.add(singleRecipeJSON);
-              console.log(JSON.stringify(singleRecipeJSON));
               $state.go("app.recipe", {});
             }
           }
@@ -886,15 +1009,71 @@ angular.module('starter.controllers', [])
 
     });
   })
-  .controller('NavCtrl', function($scope, $stateParams, $cordovaGoogleAnalytics, $http, $q,  $state, StorageService, $location) {
+  .controller('NavCtrl', function($scope, $stateParams, $http, $q,  $state, StorageService, $location) {
 
     $scope.go = function ( path ) {
-      console.log("9jksf Path "+path+": "+$location.path());
       $location.path( path );
     };
   })
 
-  .controller('CatCtrl', function($scope, $stateParams, $cordovaGoogleAnalytics, $http, $q,  $state, StorageService,$ionicLoading) {
+  .controller('CatCtrl', function($scope, $stateParams, $http, $q,  $state, StorageService,$ionicLoading) {
+    $scope.Analytics = function(ScreenName)
+    {
+      if(typeof analytics !== 'undefined') {
+        // turn on debug mode
+        // https://github.com/danwilson/google-analytics-plugin#javascript-usage
+        analytics.debugMode();
+
+        // start tracker
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/
+
+        analytics.startTrackerWithId('UA-000000-01');
+
+        // set user id
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
+
+        analytics.setUserId($scope.userID);
+
+        // track a view
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
+        // Hint: Currently no support for appName, appId, appVersion, appInstallerId
+        //       If you need support for it, please create an issue on github:
+        //       https://github.com/driftyco/ng-cordova/issues
+
+        analytics.trackView(ScreenName);
+
+        // set custom dimensions
+        // https://developers.google.com/analytics/devguides/platform/customdimsmets
+
+        analytics.addCustomDimension('dimension1', 'Level 1');
+
+        // track event
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
+
+        analytics.trackEvent('Videos', 'Video Load Time', 'Gone With the Wind', 100);
+
+        // add transaction
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
+
+        analytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
+
+        // add transaction item
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
+
+        analytics.addTransactionItem(
+          '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
+        );
+
+        // allow IDFA collection to enable demographics and interest reports
+        // https://developers.google.com/analytics/devguides/collection/ios/v3/optional-features#idfa
+
+        analytics.setAllowIDFACollection(true);
+
+      }else {
+        console.log("Google Analytics Unavailable");
+      }
+
+    };
     $scope.Analytics("Categories Top Level");
     var titleMap = {
       'appetizer': {
@@ -977,7 +1156,7 @@ angular.module('starter.controllers', [])
       'Content-Type': 'application/json',
       'Accept': 'text/html'
     };
-    console.log("90js9df: "+$stateParams.cat.toLowerCase());
+
     arr.push(
       $http({
         method: "GET",
@@ -993,17 +1172,13 @@ angular.module('starter.controllers', [])
       // ret[0] contains the response of the first call
       // ret[1] contains the second response
       // etc.
-      console.log("Auth.signin.success!");
-      //console.log(result[0].data);
+
       var htmlOpenSourceCookbook = $($.parseHTML(result[0].data));
       var postList = htmlOpenSourceCookbook.find("h1[id*='post']");
       var listOfImages = [];
 
       for (var j = 0; j < postList.length; j++) {
         var posts = postList[j];
-        console.log("opensourcecookbook: " + posts);
-        console.log($(posts).text());
-        console.log($($(posts).find("a")[0]).attr("href"));
         listOfImages.push(
           $http({
             method: "GET",
@@ -1023,8 +1198,7 @@ angular.module('starter.controllers', [])
         };
         for (var res = 0; res < page.length; res++) {
           var recipeImage = $($($.parseHTML(page[res].data)).find("#content img")[0]).attr("src");
-          console.log("RECIPE IMAGE LINK:");
-          console.log(recipeImage);
+
           if (recipeImage === "http://opensourcecook.com/wp-content/themes/emerald-stretch/img/calendar.gif"
             || recipeImage === undefined || recipeImage === null
           ) {
@@ -1035,8 +1209,7 @@ angular.module('starter.controllers', [])
           }
           var recipeTitle = $($($.parseHTML(page[res].data)).find("#content h1")[0]).text();
           var recipeLink = page[res].config.url;
-          console.log("NOW:");
-          console.log(recipeImage);
+
           cardJSON.img.push(recipeImage);
           cardJSON.title.push(recipeTitle);
           cardJSON.link.push(recipeLink);
@@ -1067,10 +1240,8 @@ angular.module('starter.controllers', [])
 
           function goToRecipe(singleRecipeJSON) {
             return function () {
-              console.log('HEYO');
               //$scope.CurrentRecipeInfo = singleRecipeJSON;
               StorageService.add(singleRecipeJSON);
-              console.log(JSON.stringify(singleRecipeJSON));
               $state.go("app.recipe", {});
             }
           }
@@ -1094,63 +1265,68 @@ angular.module('starter.controllers', [])
   /*.controller('Ctrl', function($scope, $stateParams, $http, $q,  $state, StorageService, $ionicLoading) {
     $scope.Search();
   })*/
-    .controller('RandomCtrl', function($scope, $stateParams, $cordovaGoogleAnalytics, $http, $q,  $state, StorageService, $ionicLoading) {
+    .controller('RandomCtrl', function($scope, $stateParams, $http, $q,  $state, StorageService, $ionicLoading) {
     $scope.userID = '_' + Math.random().toString(36).substr(2, 9);
+
       $scope.Analytics = function(ScreenName)
     {
-      // turn on debug mode
-      // https://github.com/danwilson/google-analytics-plugin#javascript-usage
-      $cordovaGoogleAnalytics.debugMode();
+      if(typeof analytics !== 'undefined') {
+        // turn on debug mode
+        // https://github.com/danwilson/google-analytics-plugin#javascript-usage
+        analytics.debugMode();
 
-      // start tracker
-      // https://developers.google.com/analytics/devguides/collection/analyticsjs/
+        // start tracker
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/
 
-      $cordovaGoogleAnalytics.startTrackerWithId('UA-000000-01');
+        analytics.startTrackerWithId('UA-000000-01');
 
-      // set user id
-      // https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
+        // set user id
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
 
-      $cordovaGoogleAnalytics.setUserId($scope.userID);
+        analytics.setUserId($scope.userID);
 
-      // track a view
-      // https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
-      // Hint: Currently no support for appName, appId, appVersion, appInstallerId
-      //       If you need support for it, please create an issue on github:
-      //       https://github.com/driftyco/ng-cordova/issues
+        // track a view
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
+        // Hint: Currently no support for appName, appId, appVersion, appInstallerId
+        //       If you need support for it, please create an issue on github:
+        //       https://github.com/driftyco/ng-cordova/issues
 
-      $cordovaGoogleAnalytics.trackView(ScreenName);
+        analytics.trackView(ScreenName);
 
-      // set custom dimensions
-      // https://developers.google.com/analytics/devguides/platform/customdimsmets
+        // set custom dimensions
+        // https://developers.google.com/analytics/devguides/platform/customdimsmets
 
-      $cordovaGoogleAnalytics.addCustomDimension('dimension1', 'Level 1');
+        analytics.addCustomDimension('dimension1', 'Level 1');
 
-      // track event
-      // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
+        // track event
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
 
-      $cordovaGoogleAnalytics.trackEvent('Videos', 'Video Load Time', 'Gone With the Wind', 100);
+        analytics.trackEvent('Videos', 'Video Load Time', 'Gone With the Wind', 100);
 
-      // add transaction
-      // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
+        // add transaction
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
 
-      $cordovaGoogleAnalytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
+        analytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
 
-      // add transaction item
-      // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
+        // add transaction item
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
 
-      $cordovaGoogleAnalytics.addTransactionItem(
-        '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
-      );
+        analytics.addTransactionItem(
+          '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
+        );
 
-      // allow IDFA collection to enable demographics and interest reports
-      // https://developers.google.com/analytics/devguides/collection/ios/v3/optional-features#idfa
+        // allow IDFA collection to enable demographics and interest reports
+        // https://developers.google.com/analytics/devguides/collection/ios/v3/optional-features#idfa
 
-      $cordovaGoogleAnalytics.setAllowIDFACollection(true);
+        analytics.setAllowIDFACollection(true);
+
+      }else {
+        console.log("Google Analytics Unavailable");
+      }
 
     };
       $scope.CookBookURL =
       "http://forkthecookbook.com/search-recipes";
-
     $scope.Search = function (query) {
       $scope.Analytics("Search");
       $ionicLoading.show({
@@ -1195,8 +1371,6 @@ angular.module('starter.controllers', [])
         // ret[0] contains the response of the first call
         // ret[1] contains the second response
         // etc.
-        console.log("Auth.signin.success!");
-        //console.log(result[0].data);
         var html = $($.parseHTML( result[0].data )).find( "#recipeContainer" )[0];
         var htmlOpenSourceCookbook = $($.parseHTML( result[1].data ));
         var postList = htmlOpenSourceCookbook.find( "h1[id*='post']" );
@@ -1205,9 +1379,6 @@ angular.module('starter.controllers', [])
         for(var j = 0; j < postList.length;j++)
         {
           var posts = postList[j];
-          console.log("opensourcecookbook: "+posts);
-          console.log($(posts).text());
-          console.log($($(posts).find("a")[0]).attr("href"));
           listOfImages.push(
             $http({
               method: "GET",
@@ -1228,8 +1399,6 @@ angular.module('starter.controllers', [])
           for(var res = 0; res < page.length; res++)
           {
             var recipeImage = $($($.parseHTML( page[res].data )).find( "#content img" )[0]).attr("src");
-            console.log("RECIPE IMAGE LINK:");
-            console.log(recipeImage);
             if(recipeImage === "http://opensourcecook.com/wp-content/themes/emerald-stretch/img/calendar.gif"
               || recipeImage === undefined || recipeImage === null
             )
@@ -1242,8 +1411,6 @@ angular.module('starter.controllers', [])
             }
             var recipeTitle = $($($.parseHTML( page[res].data )).find( "#content h1" )[0]).text();
             var recipeLink = page[res].config.url;
-            console.log("NOW:");
-            console.log(recipeImage);
             cardJSON.img.push(recipeImage);
             cardJSON.title.push(recipeTitle);
             cardJSON.link.push(recipeLink);
@@ -1275,10 +1442,8 @@ angular.module('starter.controllers', [])
 
             function goToRecipe( singleRecipeJSON ){
               return function(){
-                console.log('HEYO');
                 //$scope.CurrentRecipeInfo = singleRecipeJSON;
                 StorageService.add(singleRecipeJSON);
-                console.log(JSON.stringify(singleRecipeJSON));
                 $state.go("app.recipe",{});
               }
             }
@@ -1296,7 +1461,6 @@ angular.module('starter.controllers', [])
           }
           $ionicLoading.hide();
         });
-        //console.log(html);
         var text = "";
         var allHtml = $(html).find('a');
         var recipeCardInfo = {
@@ -1313,13 +1477,9 @@ angular.module('starter.controllers', [])
             text += 'url = '+ link;
             text += $(allHtml[i]).html();
             var divRecipeBox = $(allHtml[i]).find('.recipe-box')[0];
-            console.log(divRecipeBox);
             var title = $(divRecipeBox).find(".recipe-title").text();
             var bg = $(divRecipeBox).css('background-image');
             bg = bg.replace('url(','').replace(')','').replace(/\"/gi, "");
-            console.log("title: "+title);
-            console.log("background-image: "+bg)
-            console.log('link: '+link);
             recipeCardInfo.link.push(link);
             recipeCardInfo.title.push(title);
             recipeCardInfo.img.push(bg);
@@ -1328,7 +1488,6 @@ angular.module('starter.controllers', [])
 
           }catch (err){}
         }
-        console.log(recipeCardInfo);
 
 
         for(var i = 0; i < recipeCardInfo.length; i++)
@@ -1350,10 +1509,8 @@ angular.module('starter.controllers', [])
 
           function goToRecipe( singleRecipeJSON ){
             return function(){
-              console.log('HEYO');
               //$scope.CurrentRecipeInfo = singleRecipeJSON;
               StorageService.add(singleRecipeJSON);
-              console.log(JSON.stringify(singleRecipeJSON));
               $state.go("app.recipe",{});
             }
           }
@@ -1374,20 +1531,6 @@ angular.module('starter.controllers', [])
          var svgTag = angular.element(text);
          angular.element(svgTag).appendTo(iElement[0]);*/
       });
-      /*var req = $scope.httpRequest("http://forkthecookbook.com/search-recipes?q=butter+chicken", "HEAD");  // In this example you don't want to GET the full page contents
-       alert(req.status == 200 ? "found!" : "failed");  // We didn't provided an async proc so this will be executed after request completion only
-       console.log(req);*/
-      /*
-       $http.get($scope.CookBookURL, {params: {"q": "butter+chicken"}, headers: headers})
-       .success(function (data) {
-       console.log(data);
-       return data;
-
-       })
-       .error(function (data) {
-       console.log(data);
-       return data;
-       });*/
 
     };
     var random_endpoint = "http://forkthecookbook.com/recipes/random";
@@ -1395,7 +1538,65 @@ angular.module('starter.controllers', [])
     {
       $state.go(pageId,{});
     };
+      $scope.Analytics = function(ScreenName)
+      {
+        if(typeof analytics !== 'undefined') {
+          // turn on debug mode
+          // https://github.com/danwilson/google-analytics-plugin#javascript-usage
+          analytics.debugMode();
+
+          // start tracker
+          // https://developers.google.com/analytics/devguides/collection/analyticsjs/
+
+          analytics.startTrackerWithId('UA-000000-01');
+
+          // set user id
+          // https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
+
+          analytics.setUserId($scope.userID);
+
+          // track a view
+          // https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
+          // Hint: Currently no support for appName, appId, appVersion, appInstallerId
+          //       If you need support for it, please create an issue on github:
+          //       https://github.com/driftyco/ng-cordova/issues
+
+          analytics.trackView(ScreenName);
+
+          // set custom dimensions
+          // https://developers.google.com/analytics/devguides/platform/customdimsmets
+
+          analytics.addCustomDimension('dimension1', 'Level 1');
+
+          // track event
+          // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
+
+          analytics.trackEvent('Videos', 'Video Load Time', 'Gone With the Wind', 100);
+
+          // add transaction
+          // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
+
+          analytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
+
+          // add transaction item
+          // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
+
+          analytics.addTransactionItem(
+            '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
+          );
+
+          // allow IDFA collection to enable demographics and interest reports
+          // https://developers.google.com/analytics/devguides/collection/ios/v3/optional-features#idfa
+
+          analytics.setAllowIDFACollection(true);
+
+        }else {
+          console.log("Google Analytics Unavailable");
+        }
+
+      };
     $scope.randoSearch = function () {
+
       $scope.Analytics("Random");
       $ionicLoading.show({
         content: 'Loading',
@@ -1416,24 +1617,6 @@ angular.module('starter.controllers', [])
         'Content-Type': 'application/json',
         'Accept': 'text/html'
       };
-      /*
-       $http({
-       method: "GET",
-       headers: headers,
-       url: $scope.CookBookURL
-       }).success(function(result) {
-       console.log("Auth.signin.success!")
-       console.log(result);
-       var html = $($.parseHTML( result )).find( "#recipeContainer" )[0];
-       console.log(html);// $('body').append(html);
-       }).error(function(data, status, headers, config) {
-       console.log("Auth.signin.error!")
-       console.log(data);
-       console.log(status);
-       console.log(headers);
-       console.log(config);
-       })
-       *///http://www.recipepuppy.com/api/?i=onions,garlic&q=omelet&p=3
       arr.push(
         $http({
           method: "GET",
@@ -1446,10 +1629,7 @@ angular.module('starter.controllers', [])
         // ret[0] contains the response of the first call
         // ret[1] contains the second response
         // etc.
-        console.log("Auth.signin.success!");
-        //console.log(result[0].data);
         var html = $($.parseHTML( result[0].data )).find( "#recipeContainer" )[0];
-        //console.log(html);
         var text = "";
         var allHtml = $(html).find('a');
         var recipeCardInfo = {
@@ -1466,13 +1646,9 @@ angular.module('starter.controllers', [])
             text += 'url = '+ link;
             text += $(allHtml[i]).html();
             var divRecipeBox = $(allHtml[i]).find('.recipe-box')[0];
-            console.log(divRecipeBox);
             var title = $(divRecipeBox).find(".recipe-title").text();
             var bg = $(divRecipeBox).css('background-image');
             bg = bg.replace('url(','').replace(')','').replace(/\"/gi, "");
-            console.log("title: "+title);
-            console.log("background-image: "+bg)
-            console.log('link: '+link);
             recipeCardInfo.link.push(link);
             recipeCardInfo.title.push(title);
             recipeCardInfo.img.push(bg);
@@ -1481,7 +1657,6 @@ angular.module('starter.controllers', [])
 
           }catch (err){}
         }
-        console.log(recipeCardInfo);
         var results = "";//"<h2>Photo Card</h2></br>";
         var recipeListObject = $('#recipesRand');
         recipeListObject.empty();
@@ -1504,10 +1679,8 @@ angular.module('starter.controllers', [])
 
           function goToRecipe( singleRecipeJSON ){
             return function(){
-              console.log('HEYO');
               //$scope.CurrentRecipeInfo = singleRecipeJSON;
               StorageService.add(singleRecipeJSON);
-              console.log(JSON.stringify(singleRecipeJSON));
               $state.go("app.recipe",{});
             }
           }var px = '2%';
@@ -1523,28 +1696,8 @@ angular.module('starter.controllers', [])
           recipeListObject.append(newRecipeCard);
         }
 
-        //console.log(text);
-       // $('#recipesRand').empty().append(recipeListObject);
-
-        /*var iElement = angular.element( document.querySelector( 'body' ) );
-         var svgTag = angular.element(text);
-         angular.element(svgTag).appendTo(iElement[0]);*/
         $ionicLoading.hide();
       });
-      /*var req = $scope.httpRequest("http://forkthecookbook.com/search-recipes?q=butter+chicken", "HEAD");  // In this example you don't want to GET the full page contents
-       alert(req.status == 200 ? "found!" : "failed");  // We didn't provided an async proc so this will be executed after request completion only
-       console.log(req);*/
-      /*
-       $http.get($scope.CookBookURL, {params: {"q": "butter+chicken"}, headers: headers})
-       .success(function (data) {
-       console.log(data);
-       return data;
-
-       })
-       .error(function (data) {
-       console.log(data);
-       return data;
-       });*/
 
     };
     $scope.randoSearch();
