@@ -52,7 +52,7 @@ angular.module('starter.controllers', [])
     ];
   })
 
-  .controller('PlaylistCtrl', function($scope, $stateParams) {
+  .controller('PlaylistCtrl', function($scope, $stateParams, $cordovaGoogleAnalytics) {
 
   })
   .factory ("StorageService", function ($localStorage) {
@@ -76,6 +76,7 @@ angular.module('starter.controllers', [])
     };
   })
   .controller( "MainCtrl", function ($scope, StorageService, $state,$ionicLoading) {
+    $scope.Analytics("History");
     $scope.history = function() {
       $ionicLoading.show({
         content: 'Loading',
@@ -143,11 +144,12 @@ angular.module('starter.controllers', [])
     $scope.history();
 })
 
-  .controller('StorageService', function($scope, $stateParams, $localStorage) {
+  .controller('StorageService', function($scope, $stateParams, $cordovaGoogleAnalytics, $localStorage) {
 
   })
-  .controller('RecipeCtrl', function($scope, $stateParams, $http, $q, StorageService,$ionicLoading) {
+  .controller('RecipeCtrl', function($scope, $stateParams, $cordovaGoogleAnalytics, $http, $q, StorageService,$ionicLoading) {
     $scope.GetRecipe = function () {
+      $scope.Analytics("Recipe Page");
       $ionicLoading.show({
         content: 'Loading',
         animation: 'fade-in',
@@ -443,23 +445,24 @@ angular.module('starter.controllers', [])
     };
     $scope.GetRecipe();
   })
-  .controller('SearchCtrl', function($scope, $stateParams, $http, $q, StorageService, $state, $ionicLoading) {
+  .controller('SearchCtrl', function($scope, $stateParams, $cordovaGoogleAnalytics, $http, $q, StorageService, $state, $ionicLoading) {
     $scope.CookBookURL =
       "http://forkthecookbook.com/search-recipes";
 
     $scope.Search = function (query) {
-        $ionicLoading.show({
-          content: 'Loading',
-          animation: 'fade-in',
-          showBackdrop: true,
-          maxWidth: 200,
-          showDelay: 0
-        });
+      $scope.Analytics("Search");
+      $ionicLoading.show({
+        content: 'Loading',
+        animation: 'fade-in',
+        showBackdrop: true,
+        maxWidth: 200,
+        showDelay: 0
+      });
       var arr = [];
 
       /*for (var a = 0; a < subs.length; ++a) {
-        arr.push($http.get(url));
-      }*/
+       arr.push($http.get(url));
+       }*/
       var headers = {
         'Access-Control-Allow-Origin' : '*',
         'Access-Control-Allow-Origin' : 'http://localhost:8101',
@@ -468,12 +471,12 @@ angular.module('starter.controllers', [])
         'Accept': 'text/html'
       };
       arr.push(
-      $http({
-        method: "GET",
-        params: {"q" : query},
-        headers: headers,
-        url: $scope.CookBookURL
-      })
+        $http({
+          method: "GET",
+          params: {"q" : query},
+          headers: headers,
+          url: $scope.CookBookURL
+        })
       );
       arr.push(
         $http({
@@ -526,7 +529,7 @@ angular.module('starter.controllers', [])
             console.log("RECIPE IMAGE LINK:");
             console.log(recipeImage);
             if(recipeImage === "http://opensourcecook.com/wp-content/themes/emerald-stretch/img/calendar.gif"
-            || recipeImage === undefined || recipeImage === null
+              || recipeImage === undefined || recipeImage === null
             )
             {
               recipeImage = 'img/cooker.png';
@@ -550,14 +553,14 @@ angular.module('starter.controllers', [])
             var titleX = cardJSON.title[i];
             var imgX = cardJSON.img[i];
             /*if(imgX === '')
-            {
-              imgX = 'img/cooker.png';
-            }
-            /*var image = new Image();
-            image.src = imgX;
-            if (image.width == 0) {
-              imgX = 'img/cooker.png';
-            }*/
+             {
+             imgX = 'img/cooker.png';
+             }
+             /*var image = new Image();
+             image.src = imgX;
+             if (image.width == 0) {
+             imgX = 'img/cooker.png';
+             }*/
 
             var linkX = cardJSON.link[i];
             //$scope.CurrentRecipe = linkX.substring(linkX.lastIndexOf("/")+1);
@@ -666,12 +669,12 @@ angular.module('starter.controllers', [])
         }
 
         /*var iElement = angular.element( document.querySelector( 'body' ) );
-        var svgTag = angular.element(text);
-        angular.element(svgTag).appendTo(iElement[0]);*/
+         var svgTag = angular.element(text);
+         angular.element(svgTag).appendTo(iElement[0]);*/
       });
       /*var req = $scope.httpRequest("http://forkthecookbook.com/search-recipes?q=butter+chicken", "HEAD");  // In this example you don't want to GET the full page contents
-      alert(req.status == 200 ? "found!" : "failed");  // We didn't provided an async proc so this will be executed after request completion only
-      console.log(req);*/
+       alert(req.status == 200 ? "found!" : "failed");  // We didn't provided an async proc so this will be executed after request completion only
+       console.log(req);*/
       /*
        $http.get($scope.CookBookURL, {params: {"q": "butter+chicken"}, headers: headers})
        .success(function (data) {
@@ -686,35 +689,72 @@ angular.module('starter.controllers', [])
 
     };
   })
-  .controller('CatCtrl2', function($scope, $stateParams, $http, $q,  $state, StorageService, $ionicLoading) {
+  .controller('CatCtrl2', function($scope, $stateParams, $cordovaGoogleAnalytics, $http, $q,  $state, StorageService, $ionicLoading) {
+    $scope.Analytics("Categories Second Level");
     var arr = [];
     var titleMap = {
-      'appetizer': "Appetizer",
-      'beverages': "Beverages",
-      'muffins': "Muffins",
-      'navdessert': "Dessert",
-      'navmaindishes': "Main Dishes",
-      'news': "News",
-      'salad': "Salad",
-      'sauce': "Sauce",
-      'side-dish': "Side Dish",
-      'snacks': "Snacks",
-      'soup': "Soup",
+      'appetizer': {
+        name: "Appetizer",
+        icon: "img/categories/cracker.png"
+      },
+      'beverages': {
+        name: "Beverages",
+        icon: "img/categories/milkshake.png"
+      },
+      'muffins': {
+      name: "Muffins",
+      icon: "img/categories/cupcake.png"
+      },
+      'navdessert': {
+        name: "Dessert",
+        icon: "img/categories/chocolate.png"
 
-      'chicken': "Chicken",
-      'meat': "Meat",
-      'pasta': "Pasta",
-      'pork': "Pork",
-      'seafood': "Seafood",
-      'turkey': "Turkey",
-      'wild-game': "Wild Game",
+      },
+      'navmaindishes': {
+        name: "Main Dishes",
+        icon: "img/categories/dish.png"
+      },
+      'news': {
+      name: "News",
+      icon: "img/categories/male-reporter.png"
+     },
+      'salad': {
+        name: "Salad",
+        icon: "img/categories/salad.png"},
+      'sauce': {
+      name: "Sauce",
+        icon: "img/categories/ketchup.png"},
+      'side-dish': {name: "Side Dish",
+      icon: "img/categories/chef-hat-on-a-plate-from-side-view.png"},
+      'snacks': {name: "Snacks",
+      icon: "img/categories/popcorn.png"},
+      'soup': {name: "Soup",
+      icon: "img/categories/soup.png"},
 
-      'brownies': "Brownies",
-      'cakes-pies': "Cakes & Pies",
-      'cookies-fudge': "Cookies & Fudge"
+      'chicken': {name:"Chicken",
+      icon: "img/categories/chicken.png"},
+      'meat': {name: "Meat",
+      icon: "img/categories/turkey.png"},
+      'pasta': {name:"Pasta",
+      icon: "img/categories/spaguetti.png"},
+      'pork': {name: "Pork",
+      icon: "img/categories/salami.png"},
+      'seafood': {name:"Seafood",
+      icon: "img/categories/shrimp.png"},
+      'turkey': {name:"Turkey",
+      icon: "img/categories/turkey.png"},
+      'wild-game': {name: "Wild Game",
+      icon: "img/categories/deer.png"},
+
+      'brownies': {name:"Brownies",
+      icon: "img/categories/brownie.png"},
+      'cakes-pies': {name: "Cakes & Pies",
+      icon: "img/categories/cake.png"},
+      'cookies-fudge': {name:"Cookies & Fudge",
+      icon: "img/categories/cookie.png"}
 
     };
-    $scope.CurrentCategory = titleMap[$stateParams.cat2.toLowerCase()];
+    $scope.CurrentCategory = titleMap[$stateParams.cat2.toLowerCase()]['name'];
     $ionicLoading.show({
       content: 'Loading',
       animation: 'fade-in',
@@ -846,7 +886,7 @@ angular.module('starter.controllers', [])
 
     });
   })
-  .controller('NavCtrl', function($scope, $stateParams, $http, $q,  $state, StorageService, $location) {
+  .controller('NavCtrl', function($scope, $stateParams, $cordovaGoogleAnalytics, $http, $q,  $state, StorageService, $location) {
 
     $scope.go = function ( path ) {
       console.log("9jksf Path "+path+": "+$location.path());
@@ -854,34 +894,71 @@ angular.module('starter.controllers', [])
     };
   })
 
-  .controller('CatCtrl', function($scope, $stateParams, $http, $q,  $state, StorageService,$ionicLoading) {
+  .controller('CatCtrl', function($scope, $stateParams, $cordovaGoogleAnalytics, $http, $q,  $state, StorageService,$ionicLoading) {
+    $scope.Analytics("Categories Top Level");
     var titleMap = {
-      'appetizer': "Appetizer",
-      'beverages': "Beverages",
-      'muffins': "Muffins",
-      'navdessert': "Dessert",
-      'navmaindishes': "Main Dishes",
-      'news': "News",
-      'salad': "Salad",
-      'sauce': "Sauce",
-      'side-dish': "Side Dish",
-      'snacks': "Snacks",
-      'soup': "Soup",
+      'appetizer': {
+        name: "Appetizer",
+        icon: "img/categories/cracker.png"
+      },
+      'beverages': {
+        name: "Beverages",
+        icon: "img/categories/milkshake.png"
+      },
+      'muffins': {
+        name: "Muffins",
+        icon: "img/categories/cupcake.png"
+      },
+      'navdessert': {
+        name: "Dessert",
+        icon: "img/categories/chocolate.png"
 
-      'chicken': "Chicken",
-      'meat': "Meat",
-      'pasta': "Pasta",
-      'pork': "Pork",
-      'seafood': "Seafood",
-      'turkey': "Turkey",
-      'wild-game': "Wild Game",
+      },
+      'navmaindishes': {
+        name: "Main Dishes",
+        icon: "img/categories/dish.png"
+      },
+      'news': {
+        name: "News",
+        icon: "img/categories/male-reporter.png"
+      },
+      'salad': {
+        name: "Salad",
+        icon: "img/categories/salad.png"},
+      'sauce': {
+        name: "Sauce",
+        icon: "img/categories/ketchup.png"},
+      'side-dish': {name: "Side Dish",
+        icon: "img/categories/chef-hat-on-a-plate-from-side-view.png"},
+      'snacks': {name: "Snacks",
+        icon: "img/categories/popcorn.png"},
+      'soup': {name: "Soup",
+        icon: "img/categories/soup.png"},
 
-      'brownies': "Brownies",
-      'cakes-pies': "Cakes & Pies",
-      'cookies-fudge': "Cookies & Fudge"
+      'chicken': {name:"Chicken",
+        icon: "img/categories/chicken.png"},
+      'meat': {name: "Meat",
+        icon: "img/categories/turkey.png"},
+      'pasta': {name:"Pasta",
+        icon: "img/categories/spaguetti.png"},
+      'pork': {name: "Pork",
+        icon: "img/categories/salami.png"},
+      'seafood': {name:"Seafood",
+        icon: "img/categories/shrimp.png"},
+      'turkey': {name:"Turkey",
+        icon: "img/categories/turkey.png"},
+      'wild-game': {name: "Wild Game",
+        icon: "img/categories/deer.png"},
+
+      'brownies': {name:"Brownies",
+        icon: "img/categories/brownie.png"},
+      'cakes-pies': {name: "Cakes & Pies",
+        icon: "img/categories/cake.png"},
+      'cookies-fudge': {name:"Cookies & Fudge",
+        icon: "img/categories/cookie.png"}
 
     };
-    $scope.CurrentCategory = titleMap[$stateParams.cat.toLowerCase()];
+    $scope.CurrentCategory = titleMap[$stateParams.cat.toLowerCase()]['name'];
     var arr = [];
     $ionicLoading.show({
       content: 'Loading',
@@ -1014,14 +1091,312 @@ angular.module('starter.controllers', [])
       });
     });
   })
-  .controller('RandomCtrl', function($scope, $stateParams, $http, $q,  $state, StorageService, $ionicLoading) {
+  /*.controller('Ctrl', function($scope, $stateParams, $http, $q,  $state, StorageService, $ionicLoading) {
+    $scope.Search();
+  })*/
+    .controller('RandomCtrl', function($scope, $stateParams, $cordovaGoogleAnalytics, $http, $q,  $state, StorageService, $ionicLoading) {
+    $scope.userID = '_' + Math.random().toString(36).substr(2, 9);
+      $scope.Analytics = function(ScreenName)
+    {
+      // turn on debug mode
+      // https://github.com/danwilson/google-analytics-plugin#javascript-usage
+      $cordovaGoogleAnalytics.debugMode();
 
+      // start tracker
+      // https://developers.google.com/analytics/devguides/collection/analyticsjs/
+
+      $cordovaGoogleAnalytics.startTrackerWithId('UA-000000-01');
+
+      // set user id
+      // https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
+
+      $cordovaGoogleAnalytics.setUserId($scope.userID);
+
+      // track a view
+      // https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
+      // Hint: Currently no support for appName, appId, appVersion, appInstallerId
+      //       If you need support for it, please create an issue on github:
+      //       https://github.com/driftyco/ng-cordova/issues
+
+      $cordovaGoogleAnalytics.trackView(ScreenName);
+
+      // set custom dimensions
+      // https://developers.google.com/analytics/devguides/platform/customdimsmets
+
+      $cordovaGoogleAnalytics.addCustomDimension('dimension1', 'Level 1');
+
+      // track event
+      // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
+
+      $cordovaGoogleAnalytics.trackEvent('Videos', 'Video Load Time', 'Gone With the Wind', 100);
+
+      // add transaction
+      // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
+
+      $cordovaGoogleAnalytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
+
+      // add transaction item
+      // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
+
+      $cordovaGoogleAnalytics.addTransactionItem(
+        '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
+      );
+
+      // allow IDFA collection to enable demographics and interest reports
+      // https://developers.google.com/analytics/devguides/collection/ios/v3/optional-features#idfa
+
+      $cordovaGoogleAnalytics.setAllowIDFACollection(true);
+
+    };
+      $scope.CookBookURL =
+      "http://forkthecookbook.com/search-recipes";
+
+    $scope.Search = function (query) {
+      $scope.Analytics("Search");
+      $ionicLoading.show({
+        content: 'Loading',
+        animation: 'fade-in',
+        showBackdrop: true,
+        maxWidth: 200,
+        showDelay: 0
+      });
+      var arr = [];
+
+      /*for (var a = 0; a < subs.length; ++a) {
+       arr.push($http.get(url));
+       }*/
+      var headers = {
+        'Access-Control-Allow-Origin' : '*',
+        'Access-Control-Allow-Origin' : 'http://localhost:8101',
+        'Access-Control-Allow-Methods' : 'POST, GET, OPTIONS, PUT',
+        'Content-Type': 'application/json',
+        'Accept': 'text/html'
+      };
+      arr.push(
+        $http({
+          method: "GET",
+          params: {"q" : query},
+          headers: headers,
+          url: $scope.CookBookURL
+        })
+      );
+      arr.push(
+        $http({
+          method: "GET",
+          params: {"s" : query},
+          headers: headers,
+          url: "http://opensourcecook.com/"
+        })
+      );
+      var results = "</br><h4>Results: </h4>";
+      var recipeListObject = $('#recipes');
+      recipeListObject.empty();
+      $q.all(arr).then(function (result) {
+        // ret[0] contains the response of the first call
+        // ret[1] contains the second response
+        // etc.
+        console.log("Auth.signin.success!");
+        //console.log(result[0].data);
+        var html = $($.parseHTML( result[0].data )).find( "#recipeContainer" )[0];
+        var htmlOpenSourceCookbook = $($.parseHTML( result[1].data ));
+        var postList = htmlOpenSourceCookbook.find( "h1[id*='post']" );
+        var listOfImages = [];
+
+        for(var j = 0; j < postList.length;j++)
+        {
+          var posts = postList[j];
+          console.log("opensourcecookbook: "+posts);
+          console.log($(posts).text());
+          console.log($($(posts).find("a")[0]).attr("href"));
+          listOfImages.push(
+            $http({
+              method: "GET",
+              params: {},
+              headers: headers,
+              url: $($(posts).find("a")[0]).attr("href")
+            })
+          );
+        }
+
+        $q.all(listOfImages).then(function (page) {
+          var cardJSON = {
+            link: [],
+            title: [],
+            img: [],
+            length: 0
+          };
+          for(var res = 0; res < page.length; res++)
+          {
+            var recipeImage = $($($.parseHTML( page[res].data )).find( "#content img" )[0]).attr("src");
+            console.log("RECIPE IMAGE LINK:");
+            console.log(recipeImage);
+            if(recipeImage === "http://opensourcecook.com/wp-content/themes/emerald-stretch/img/calendar.gif"
+              || recipeImage === undefined || recipeImage === null
+            )
+            {
+              recipeImage = 'img/cooker.png';
+            }
+            if(recipeImage.includes("/wp-content/uploads/") && !recipeImage.includes("http://"))
+            {
+              recipeImage = "http://opensourcecook.com"+recipeImage;
+            }
+            var recipeTitle = $($($.parseHTML( page[res].data )).find( "#content h1" )[0]).text();
+            var recipeLink = page[res].config.url;
+            console.log("NOW:");
+            console.log(recipeImage);
+            cardJSON.img.push(recipeImage);
+            cardJSON.title.push(recipeTitle);
+            cardJSON.link.push(recipeLink);
+
+            cardJSON.length++;
+          }
+          for(var i = 0; i < cardJSON.length; i++)
+          {
+            var titleX = cardJSON.title[i];
+            var imgX = cardJSON.img[i];
+            /*if(imgX === '')
+             {
+             imgX = 'img/cooker.png';
+             }
+             /*var image = new Image();
+             image.src = imgX;
+             if (image.width == 0) {
+             imgX = 'img/cooker.png';
+             }*/
+
+            var linkX = cardJSON.link[i];
+            //$scope.CurrentRecipe = linkX.substring(linkX.lastIndexOf("/")+1);
+            var recipeInfo = {
+              link: linkX,
+              title: titleX,
+              img: imgX
+            };
+
+
+            function goToRecipe( singleRecipeJSON ){
+              return function(){
+                console.log('HEYO');
+                //$scope.CurrentRecipeInfo = singleRecipeJSON;
+                StorageService.add(singleRecipeJSON);
+                console.log(JSON.stringify(singleRecipeJSON));
+                $state.go("app.recipe",{});
+              }
+            }
+            var px = '2%';
+            var cardInfo = "<div class='w3-card-4' style='display: inline-block;margin-top: "+px+";margin-bottom: "+px+";margin-right: "+px+"; margin-left: "+px+";width:45%'>"+
+              " <img src='"+imgX+"' alt='Norway' style='width:100%'>"+
+              "<div class='w3-container w3-center'>"+
+              "<p>"+titleX+"</p>"+
+              "</div>"+
+              "</div>";
+
+            var newRecipeCard = $($.parseHTML(cardInfo));
+            newRecipeCard.click(goToRecipe(recipeInfo));
+            recipeListObject.append(newRecipeCard);
+          }
+          $ionicLoading.hide();
+        });
+        //console.log(html);
+        var text = "";
+        var allHtml = $(html).find('a');
+        var recipeCardInfo = {
+          link: [],
+          title: [],
+          img: [],
+          length: 0
+        };
+        for(var i =0;i<allHtml.length;i++)
+        {
+
+          try {
+            var link = 'http://forkthecookbook.com' + $(allHtml[i]).attr('href');
+            text += 'url = '+ link;
+            text += $(allHtml[i]).html();
+            var divRecipeBox = $(allHtml[i]).find('.recipe-box')[0];
+            console.log(divRecipeBox);
+            var title = $(divRecipeBox).find(".recipe-title").text();
+            var bg = $(divRecipeBox).css('background-image');
+            bg = bg.replace('url(','').replace(')','').replace(/\"/gi, "");
+            console.log("title: "+title);
+            console.log("background-image: "+bg)
+            console.log('link: '+link);
+            recipeCardInfo.link.push(link);
+            recipeCardInfo.title.push(title);
+            recipeCardInfo.img.push(bg);
+            recipeCardInfo.length++;
+
+
+          }catch (err){}
+        }
+        console.log(recipeCardInfo);
+
+
+        for(var i = 0; i < recipeCardInfo.length; i++)
+        {
+          var titleX = recipeCardInfo.title[i];
+          var imgX = recipeCardInfo.img[i];
+          if(imgX === '')
+          {
+            imgX = 'img/cooker.png';
+          }
+          var linkX = recipeCardInfo.link[i];
+          //$scope.CurrentRecipe = linkX.substring(linkX.lastIndexOf("/")+1);
+          var recipeInfo = {
+            link: linkX,
+            title: titleX,
+            img: imgX
+          };
+
+
+          function goToRecipe( singleRecipeJSON ){
+            return function(){
+              console.log('HEYO');
+              //$scope.CurrentRecipeInfo = singleRecipeJSON;
+              StorageService.add(singleRecipeJSON);
+              console.log(JSON.stringify(singleRecipeJSON));
+              $state.go("app.recipe",{});
+            }
+          }
+          var px = '2%';
+          var cardInfo = "<div class='w3-card-4' style='display: inline-block;margin-top: "+px+";margin-bottom: "+px+";margin-right: "+px+"; margin-left: "+px+";width:45%'>"+
+            " <img src='"+imgX+"' alt='Norway' style='width:100%'>"+
+            "<div class='w3-container w3-center'>"+
+            "<p>"+titleX+"</p>"+
+            "</div>"+
+            "</div>";
+
+          var newRecipeCard = $($.parseHTML(cardInfo));
+          newRecipeCard.click(goToRecipe(recipeInfo));
+          recipeListObject.append(newRecipeCard);
+        }
+
+        /*var iElement = angular.element( document.querySelector( 'body' ) );
+         var svgTag = angular.element(text);
+         angular.element(svgTag).appendTo(iElement[0]);*/
+      });
+      /*var req = $scope.httpRequest("http://forkthecookbook.com/search-recipes?q=butter+chicken", "HEAD");  // In this example you don't want to GET the full page contents
+       alert(req.status == 200 ? "found!" : "failed");  // We didn't provided an async proc so this will be executed after request completion only
+       console.log(req);*/
+      /*
+       $http.get($scope.CookBookURL, {params: {"q": "butter+chicken"}, headers: headers})
+       .success(function (data) {
+       console.log(data);
+       return data;
+
+       })
+       .error(function (data) {
+       console.log(data);
+       return data;
+       });*/
+
+    };
     var random_endpoint = "http://forkthecookbook.com/recipes/random";
     $scope.goto = function(pageId)
     {
       $state.go(pageId,{});
     };
     $scope.randoSearch = function () {
+      $scope.Analytics("Random");
       $ionicLoading.show({
         content: 'Loading',
         animation: 'fade-in',
