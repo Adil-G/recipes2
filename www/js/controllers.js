@@ -109,7 +109,7 @@ angular.module('starter.controllers', [])
           // set custom dimensions
           // https://developers.google.com/analytics/devguides/platform/customdimsmets
 
-          window.analytics.addCustomDimension('dimension1', 'Level 1');
+          window.analytics.addCustomDimension('dimension1', 1);
 
           // track event
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
@@ -119,13 +119,13 @@ angular.module('starter.controllers', [])
           // add transaction
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
 
-          window.analytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
+          window.analytics.addTransaction(1234, 'Acme Clothing', 11.99, 5, 1.29, 'EUR');
 
           // add transaction item
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
 
           window.analytics.addTransactionItem(
-            '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
+            1234, 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', 11.99, 1, 'GBP'
           );
 
           // allow IDFA collection to enable demographics and interest reports
@@ -244,7 +244,7 @@ angular.module('starter.controllers', [])
           // set custom dimensions
           // https://developers.google.com/analytics/devguides/platform/customdimsmets
 
-          window.analytics.addCustomDimension('dimension1', 'Level 1');
+          window.analytics.addCustomDimension('dimension1', 1);
 
           // track event
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
@@ -254,13 +254,13 @@ angular.module('starter.controllers', [])
           // add transaction
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
 
-          window.analytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
+          window.analytics.addTransaction(1234, 'Acme Clothing', 11.99, 5, 1.29, 'EUR');
 
           // add transaction item
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
 
           window.analytics.addTransactionItem(
-            '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
+            1234, 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', 11.99, 1, 'GBP'
           );
 
           // allow IDFA collection to enable demographics and interest reports
@@ -556,7 +556,7 @@ angular.module('starter.controllers', [])
           // set custom dimensions
           // https://developers.google.com/analytics/devguides/platform/customdimsmets
 
-          window.analytics.addCustomDimension('dimension1', 'Level 1');
+          window.analytics.addCustomDimension('dimension1', 1);
 
           // track event
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
@@ -566,13 +566,13 @@ angular.module('starter.controllers', [])
           // add transaction
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
 
-          window.analytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
+          window.analytics.addTransaction(1234, 'Acme Clothing', 11.99, 5, 1.29, 'EUR');
 
           // add transaction item
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
 
           window.analytics.addTransactionItem(
-            '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
+            1234, 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', 11.99, 1, 'GBP'
           );
 
           // allow IDFA collection to enable demographics and interest reports
@@ -836,7 +836,7 @@ angular.module('starter.controllers', [])
           // set custom dimensions
           // https://developers.google.com/analytics/devguides/platform/customdimsmets
 
-          window.analytics.addCustomDimension('dimension1', 'Level 1');
+          window.analytics.addCustomDimension('dimension1', 1);
 
           // track event
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
@@ -846,13 +846,13 @@ angular.module('starter.controllers', [])
           // add transaction
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
 
-          window.analytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
+          window.analytics.addTransaction(1234, 'Acme Clothing', 11.99, 5, 1.29, 'EUR');
 
           // add transaction item
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
 
           window.analytics.addTransactionItem(
-            '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
+            1234, 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', 11.99, 1, 'GBP'
           );
 
           // allow IDFA collection to enable demographics and interest reports
@@ -1096,7 +1096,7 @@ angular.module('starter.controllers', [])
           // set custom dimensions
           // https://developers.google.com/analytics/devguides/platform/customdimsmets
 
-          window.analytics.addCustomDimension('dimension1', 'Level 1');
+          window.analytics.addCustomDimension('dimension1', 1);
 
           // track event
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
@@ -1106,13 +1106,13 @@ angular.module('starter.controllers', [])
           // add transaction
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
 
-          window.analytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
+          window.analytics.addTransaction(1234, 'Acme Clothing', 11.99, 5, 1.29, 'EUR');
 
           // add transaction item
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
 
           window.analytics.addTransactionItem(
-            '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
+            1234, 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', 11.99, 1, 'GBP'
           );
 
           // allow IDFA collection to enable demographics and interest reports
@@ -1357,7 +1357,7 @@ angular.module('starter.controllers', [])
           // set custom dimensions
           // https://developers.google.com/analytics/devguides/platform/customdimsmets
 
-          window.analytics.addCustomDimension('dimension1', 'Level 1');
+          window.analytics.addCustomDimension('dimension1', 1);
 
           // track event
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
@@ -1367,13 +1367,13 @@ angular.module('starter.controllers', [])
           // add transaction
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
 
-          window.analytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
+          window.analytics.addTransaction(1234, 'Acme Clothing', 11.99, 5, 1.29, 'EUR');
 
           // add transaction item
           // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
 
           window.analytics.addTransactionItem(
-            '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
+            1234, 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', 11.99, 1, 'GBP'
           );
 
           // allow IDFA collection to enable demographics and interest reports
@@ -1637,7 +1637,7 @@ angular.module('starter.controllers', [])
             // set custom dimensions
             // https://developers.google.com/analytics/devguides/platform/customdimsmets
 
-            window.analytics.addCustomDimension('dimension1', 'Level 1');
+            window.analytics.addCustomDimension('dimension1', 1);
 
             // track event
             // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
@@ -1647,13 +1647,13 @@ angular.module('starter.controllers', [])
             // add transaction
             // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans
 
-            window.analytics.addTransaction('1234', 'Acme Clothing', '11.99', '5', '1.29', 'EUR');
+            window.analytics.addTransaction(1234, 'Acme Clothing', 11.99, 5, 1.29, 'EUR');
 
             // add transaction item
             // https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem
 
             window.analytics.addTransactionItem(
-              '1234', 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', '11.99', '1', 'GBP'
+              1234, 'Fluffy Pink Bunnies', 'DD23444', 'Party Toys', 11.99, 1, 'GBP'
             );
 
             // allow IDFA collection to enable demographics and interest reports
